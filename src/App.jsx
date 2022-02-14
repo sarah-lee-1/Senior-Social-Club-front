@@ -19,8 +19,8 @@ function App() {
     updateEvent();
     deleteEvent(); 
     viewAllEvents();
-
-     
+    createRsvp();
+    viewEventMap();     
   }, [])
 
 
@@ -104,7 +104,7 @@ function App() {
     setEvents(response.data)
   }; 
 
-  // rsvp_event
+  
   async function createRsvp(newRsvp) {
     let response = await axios.post('http://127.0.0.1:8000/api/events/rsvp_event/2/'), newRsvp;
     if(response.status === 201) {
@@ -114,7 +114,12 @@ function App() {
   };
 
 
-  // view_event_map
+  async function viewEventMap(getMap) {
+    let response = await axios.get('insert Google maps Api here'), getMap;
+    if(response.status === 201) {
+      await viewAllEvents();
+    }
+  }
 
 
   return (
