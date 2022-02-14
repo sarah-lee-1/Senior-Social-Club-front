@@ -13,11 +13,11 @@ function App() {
     createMember();
     membershipRequest();
     viewProfile();
+    updateProfile();
+    createEvent();
 
-  
      
   }, [])
-
 
 
   async function viewAllMembers() {
@@ -43,19 +43,31 @@ function App() {
  };
  
 
-  // view_profile
   async function viewProfile(getProfile) {
     let response = await axios.get('http://127.0.0.1:8000/api/members/view_profile/1/'), getProfile; 
     if(response.status === 201) {
       await viewAllEvents();  
     }
-  }
+  };
+
+  
+  async function updateProfile(chgProfile) {
+    let response = await axios.put('http://127.0.0.1:8000/api/members/update_profile/1/'), chgProfile;
+    if(response.data === 201) {
+      await viewAllEvents(); 
+    }
+  };
+
+  // EVENTS FUNCTIONS HERE 
+  async function createEvent(newEvent) {
+    let response = await axios.post('http://127.0.0.1:8000/api/events/create_event/'), newEvent;
+    if(response.status === 201) {
+      console.log("New Event Created")
+      await viewAllEvents(); 
+    }
+  };
 
 
-
-  // update_profile
-
-  // create_event
   // view_event
   // update_event
   // delete_event
