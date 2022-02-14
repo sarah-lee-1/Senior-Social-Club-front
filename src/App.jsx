@@ -11,6 +11,8 @@ function App() {
   useEffect(() => {
     viewAllMembers();
     createMember();
+    membershipRequest();
+    viewProfile();
 
   
      
@@ -21,20 +23,36 @@ function App() {
   async function viewAllMembers() {
     let response = await axios.get('http://127.0.0.1:8000/api/members/view_all_members/');
     setMembers(response.data)
-  }
+  };
 
-  // create_member
+  
   async function createMember(newMember) {
     let response = await axios.post('http://127.0.0.1:8000/api/members/create_member/'), newMember;
     if(response.status ===201) {
       console.log("New Member Created!")
-      await getAllMembers();
+      await viewAllEvents();
+    }
+  };
+
+ async function membershipRequest(newRequest) {
+   let response = await axios.post('http://127.0.0.1:8000/api/members/create_membership_request/'), newRequest;
+   if(response.status === 201) {
+     console.log("New Request Generated")
+     await viewAllEvents();
+   }
+ };
+ 
+
+  // view_profile
+  async function viewProfile(getProfile) {
+    let response = await axios.get('http://127.0.0.1:8000/api/members/view_profile/1/'), getProfile; 
+    if(response.status === 201) {
+      await viewAllEvents();  
     }
   }
 
- 
-  // membership_request
-  // view_profile
+
+
   // update_profile
 
   // create_event
