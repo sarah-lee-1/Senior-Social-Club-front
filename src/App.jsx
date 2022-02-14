@@ -15,6 +15,7 @@ function App() {
     viewProfile();
     updateProfile();
     createEvent();
+    viewEvent();
 
      
   }, [])
@@ -68,7 +69,14 @@ function App() {
   };
 
 
-  // view_event
+  async function viewEvent(getEvent) {
+    let response = await axios.get('http://127.0.0.1:8000/api/events/view_event/2/'), getEvent;
+    if(response.status === 201) {
+      await viewAllEvents();
+    }
+  }; 
+
+
   // update_event
   // delete_event
   // view_all_events
