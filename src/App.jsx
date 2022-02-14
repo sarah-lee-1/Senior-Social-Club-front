@@ -16,7 +16,9 @@ function App() {
     updateProfile();
     createEvent();
     viewEvent(); 
-    updateEvent(); 
+    updateEvent();
+    deleteEvent(); 
+    viewAllEvents();
 
      
   }, [])
@@ -36,7 +38,7 @@ function App() {
     }
   };
 
-  
+
  async function membershipRequest(newRequest) {
    let response = await axios.post('http://127.0.0.1:8000/api/members/create_membership_request/'), newRequest;
    if(response.status === 201) {
@@ -46,16 +48,16 @@ function App() {
  };
  
 
-  async function viewProfile(getProfile) {
-    let response = await axios.get('http://127.0.0.1:8000/api/members/view_profile/1/'), getProfile; 
+  async function viewProfile(id) {
+    let response = await axios.get('http://127.0.0.1:8000/api/members/view_profile/${id}/'); 
     if(response.status === 201) {
       await viewAllEvents();  
     }
   };
 
   
-  async function updateProfile(chgProfile) {
-    let response = await axios.put('http://127.0.0.1:8000/api/members/update_profile/1/'), chgProfile;
+  async function updateProfile(id) {
+    let response = await axios.put('http://127.0.0.1:8000/api/members/update_profile/${id}/');
     if(response.data === 201) {
       await viewAllEvents(); 
     }
@@ -71,8 +73,8 @@ function App() {
   };
 
 
-  async function viewEvent(getEvent) {
-    let response = await axios.get('http://127.0.0.1:8000/api/events/view_event/2/'), getEvent;
+  async function viewEvent(id) {
+    let response = await axios.get('http://127.0.0.1:8000/api/events/view_event/${id}/');
     if(response.status === 201) {
       await viewAllEvents();
     }
@@ -80,16 +82,38 @@ function App() {
 
   
   async function updateEvent(chgEvent) {
-    let response = await axios.put('http://127.0.0.1:8000/api/events/update_event/1/'), chgEvent;
+    let response = await axios.put('http://127.0.0.1:8000/api/events/update_event/${id}'), chgEvent;
     if(response.data === 201) {
       await viewAllEvents();
     }
   };
 
+  
+  async function deleteEvent(id) {
+    console.log("App.js ID: ", id)
+    let response = await axios.delete('http://127.0.0.1:8000/api/events/delete_event/${id}/');
+    if(response.status === 204) {
+      console.log("Event Deleted")
+      await viewAllEvents();
+    }
+  }; 
 
-  // delete_event
-  // view_all_events
+
+  async function viewAllEvents() {
+    let response = await axios.get('http://127.0.0.1:8000/api/events/view_all_events/'); 
+    setEvents(response.data)
+  }; 
+
   // rsvp_event
+  async function createRsvp(newRsvp) {
+    let response = await axios.post('http://127.0.0.1:8000/api/events/rsvp_event/2/'), newRsvp;
+    if(response.status === 201) {
+      console.log("New RSVP Generated")
+      await viewAllEvents();
+    }
+  };
+
+
   // view_event_map
 
 
