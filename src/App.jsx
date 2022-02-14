@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { Navigate } from 'react-router-dom'
 
 
 function App() {
 
+  const [event, setEvent] = useState([]);
   const [events, setEvents] = useState([]);
   conts [member, setMember] = useState([]);
-  conts [members, setMembers] = useState([]);
-  const [socialClubs, setSocialClubs] = useState([]);
+  conts [members, setMembers] = useState([]); 
 
   useEffect(() => {
     viewAllMembers();
