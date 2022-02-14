@@ -15,7 +15,8 @@ function App() {
     viewProfile();
     updateProfile();
     createEvent();
-    viewEvent();
+    viewEvent(); 
+    updateEvent(); 
 
      
   }, [])
@@ -35,6 +36,7 @@ function App() {
     }
   };
 
+  
  async function membershipRequest(newRequest) {
    let response = await axios.post('http://127.0.0.1:8000/api/members/create_membership_request/'), newRequest;
    if(response.status === 201) {
@@ -76,8 +78,15 @@ function App() {
     }
   }; 
 
+  
+  async function updateEvent(chgEvent) {
+    let response = await axios.put('http://127.0.0.1:8000/api/events/update_event/1/'), chgEvent;
+    if(response.data === 201) {
+      await viewAllEvents();
+    }
+  };
 
-  // update_event
+
   // delete_event
   // view_all_events
   // rsvp_event
