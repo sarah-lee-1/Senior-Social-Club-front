@@ -6,6 +6,7 @@ import CreateNewMember from './Components/Admin/CreateNewMember';
 import CreateMemberRequest from './Components/Member/CreateMemberReq';
 import AllMembers from './Components/Admin/AllMembers'; 
 import CreateNewEvent from './Components/Admin/CreateNewEvent';
+import AllEvents from './Components/Member/AllEvents';
 // import ViewSingleProfile from './Components/Member/ViewSingleProfile';
 
 
@@ -21,12 +22,12 @@ function App() {
     createMember();
     createRequest(); 
     createAnEvent();
-
+    allEvents();
+    
     // updateProfile();
     // viewEvent(); 
     // updateEvent();
     // deleteEvent(); 
-    // viewAllEvents();
     // createRsvp();
     // viewEventMap(); 
     // viewSingleProfile();    
@@ -65,6 +66,12 @@ function App() {
   };
 
 
+  async function allEvents() {
+    let response = await axios.get('http://127.0.0.1:8000/api/events/view_all_events/'); 
+    setEvents(response.data)
+  }; 
+
+
 //  PULLS ALL MEMBERS
   //   async function viewSingleProfile(id) {
   //   let response = await axios.get('http://127.0.0.1:8000/api/members/view_profile/${id}/'); 
@@ -81,9 +88,8 @@ function App() {
 //     }
 //   };
 
+
 //   // EVENTS FUNCTIONS HERE 
-
-
 
 //   async function viewEvent(id) {
 //     let response = await axios.get('http://127.0.0.1:8000/api/events/view_event/${id}/');
@@ -111,11 +117,6 @@ function App() {
 //   }; 
 
 
-//   async function viewAllEvents() {
-//     let response = await axios.get('http://127.0.0.1:8000/api/events/view_all_events/'); 
-//     setEvents(response.data)
-//   }; 
-
   
 //   async function createRsvp(newRsvp) {
 //     let response = await axios.post('http://127.0.0.1:8000/api/events/rsvp_event/2/'), newRsvp;
@@ -140,6 +141,7 @@ function App() {
         <CreateMemberRequest parentEntries={members} createRequest={createRequest}/> 
         <AllMembers parentEntries={members} />
         <CreateNewEvent parentEntries={members} createAnEvent={createAnEvent}/> 
+        <AllEvents parentEntries={events} />
         
     </div>
   );
