@@ -1,6 +1,6 @@
 // import React, { useState } from 'react';
 
-// const SubmitRsvp = (props) => {
+// const CreateRsvp = (props) => {
 
 //     const [title, setTitle] = useState('');
 //     const [description, setDescription] = useState('');
@@ -55,4 +55,4 @@
 //     )
 // }
 
-// export default SubmitRsvp; 
+// export default CreateRsvp; 
