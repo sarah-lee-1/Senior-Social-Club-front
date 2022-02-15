@@ -1,10 +1,23 @@
-import { useReducer } from "react";
+import React, { useState } from 'react';
 
-const AllMembers = (props) => {
+const ViewSingleProfile = (props) => {
+    
+    const [id, setId] = useState('');
+
+    function handleSubmit(event) {
+        event.preventDefault();
+        let searchProfileId = {
+            id: id
+        }
+            console.log(searchProfileId);
+            props.searchForProfile(searchProfileId);
+    }
+
     return (
         <table>
             <thead>
             <tr>
+                <th>Id</th>
                 <th>First Name</th>
                 <th>Middle Name</th>
                 <th>Last Name</th>
@@ -21,7 +34,8 @@ const AllMembers = (props) => {
             <tbody>
                 {props.parentEntries.map((member, index) => {
                     return (
-                        <tr key={member.id}>
+                        <tr>
+                            <td>{member.id}</td>
                             <td>{member.first_name}</td>
                             <td>{member.middle_name}</td>
                             <td>{member.last_name}</td>
@@ -35,10 +49,10 @@ const AllMembers = (props) => {
                         </tr>
                     );
                 })}
-
             </tbody>
         </table> 
     )
+
 }
 
-export default AllMembers; 
+export default ViewSingleProfile

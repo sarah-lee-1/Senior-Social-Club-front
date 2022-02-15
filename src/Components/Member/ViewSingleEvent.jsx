@@ -10,7 +10,7 @@ const ViewSingleEvent = (props) => {
             id: id
         }
             console.log(searchEventId);
-            props.searchforEvent(searchEventId);
+            props.searchForEvent(searchEventId);
     }
 
     return (
