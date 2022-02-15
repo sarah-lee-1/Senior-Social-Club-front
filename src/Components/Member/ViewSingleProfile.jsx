@@ -22,7 +22,7 @@
 //                 <th>Middle Name</th>
 //                 <th>Last Name</th>
 //                 <th>Email</th>
-//                 <th>Street Address</th>
+//                 <th>Address</th>
 //                 <th>City</th>
 //                 <th>State</th>
 //                 <th>Zip Code</th>

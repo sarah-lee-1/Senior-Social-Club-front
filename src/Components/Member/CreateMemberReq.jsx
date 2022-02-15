@@ -6,7 +6,7 @@
 //     const [middleName, setMiddleName] = useState('');
 //     const [lastName, setLastName] = useState('');
 //     const [email, setEmail] = useState('');
-//     const [street, setStreet] = useState('');
+//     const [address, setAddress] = useState('');
 //     const [city, setCity] = useState('');
 //     const [state, setState] = useState('');
 //     const [zipCode, setZipCode] = useState('');
@@ -20,7 +20,7 @@
 //             middle_name: middleName,
 //             last_name: lastName,
 //             email: email,
-//             street: street,
+//             address: address,
 //             city: city,
 //             state: state, 
 //             zip_code: zipCode,
@@ -41,8 +41,8 @@
 //             <input type='name' onChange={(event) => setLastName(event.target.value)} value={lastName}/>
 //             <label>Email</label>
 //             <input type='email' onChange={(event) => setEmail(event.target.value)} value={email}/>
-//             <label>Street</label>
-//             <input type='street' onChange={(event) => setStreet(event.target.value)} value={street}/>
+//             <label>Address</label>
+//             <input type='address' onChange={(event) => setAddress(event.target.value)} value={address}/>
 //             <label>City</label>
 //             <input type='city' onChange={(event) => setCity(event.target.value)} value={city}/>
 //             <label>State</label>
