@@ -4,7 +4,10 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import CreateNewMember from './Components/Admin/CreateNewMember';
 import CreateMemberRequest from './Components/Member/CreateMemberReq';
-import AllMembers from './Components/Admin/AllMembers';
+import AllMembers from './Components/Admin/AllMembers'; 
+import CreateNewEvent from './Components/Admin/CreateNewEvent';
+// import ViewSingleProfile from './Components/Member/ViewSingleProfile';
+
 
 
 function App() {
@@ -16,16 +19,17 @@ function App() {
   useEffect(() => {
     getAllMembers();
     createMember();
-    createRequest();
-    // viewProfile();
+    createRequest(); 
+    createAnEvent();
+
     // updateProfile();
-    // createEvent();
     // viewEvent(); 
     // updateEvent();
     // deleteEvent(); 
     // viewAllEvents();
     // createRsvp();
-    // viewEventMap();     
+    // viewEventMap(); 
+    // viewSingleProfile();    
   }, [])
 
 
@@ -43,7 +47,6 @@ function App() {
     }
   };
 
-
  async function createRequest(NewRequest) {
    let response = await axios.post('http://127.0.0.1:8000/api/members/create_membership_request/', NewRequest);
    if(response.status === 201) {
@@ -53,14 +56,22 @@ function App() {
  };
 
 
+  async function createAnEvent(makeNewEvent) {
+    let response = await axios.post('http://127.0.0.1:8000/api/events/create_event/', makeNewEvent);
+    if(response.status === 201) {
+      console.log("New Event Created")
+      // await viewAllEvents(); 
+    }
+  };
+
+
+//  PULLS ALL MEMBERS
   //   async function viewSingleProfile(id) {
   //   let response = await axios.get('http://127.0.0.1:8000/api/members/view_profile/${id}/'); 
   //   if(response.status === 201) {
-  //     await viewAllEvents();  
+  //     // await viewAllEvents();  
   //   }
   // };
-
-
 
   
 //   async function updateProfile(alterProfile) {
@@ -71,13 +82,7 @@ function App() {
 //   };
 
 //   // EVENTS FUNCTIONS HERE 
-//   async function createEvent(newEvent) {
-//     let response = await axios.post('http://127.0.0.1:8000/api/events/create_event/'), newEvent;
-//     if(response.status === 201) {
-//       console.log("New Event Created")
-//       await viewAllEvents(); 
-//     }
-//   };
+
 
 
 //   async function viewEvent(id) {
@@ -134,11 +139,17 @@ function App() {
         <CreateNewMember parentEntries={members} createMember={createMember}/>
         <CreateMemberRequest parentEntries={members} createRequest={createRequest}/> 
         <AllMembers parentEntries={members} />
+        <CreateNewEvent parentEntries={members} createAnEvent={createAnEvent}/> 
+        
     </div>
   );
 }
 
 export default App;
+
+
+{/* <ViewSingleProfile parentEntries={members}/> RETURNS ALL MEMBERS */}
+
 
 
 {/* <Routes>
