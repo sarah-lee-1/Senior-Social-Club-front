@@ -127,9 +127,16 @@ function App() {
 
   return (
     <div>
-      <CreateNewMember parentEntries={members} createMember={createMember}/>>
+
+        <CreateNewMember parentEntries={members} createMember={createMember}/>>
+      
     </div>
   );
 }
 
 export default App;
+
+
+{/* <Routes>
+  <Route path='/create_member/' element={CreateMember setMember{setMember}}/> 
+</Routes> */}
