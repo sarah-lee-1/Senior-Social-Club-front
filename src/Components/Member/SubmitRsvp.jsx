@@ -50,7 +50,7 @@ const SubmitRsvp = (props) => {
         <input type='name' onChange={(event) => setLastName(event.target.value)} value={lastName}/>
         <label>Email</label>
         <input type='email' onChange={(event) => setEmail(event.target.value)} value={email}/>
-        <button type='submit'>Add Member</button>
+        <button type='submit'>Submit RSVP</button>
     </form>
     )
 }

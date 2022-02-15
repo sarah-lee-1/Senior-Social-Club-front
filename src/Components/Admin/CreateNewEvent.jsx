@@ -53,7 +53,7 @@ const CreateNewEvent = (props) => {
         <input type='name' onChange={(event) => setState(event.target.value)} value={state}/>
         <label>Zip Code</label>
         <input type='zip_code' onChange={(event) => setZipCode(event.target.value)} value={zipCode}/>
-        <button type='submit'>Add Member</button>
+        <button type='submit'>Add Event</button>
     </form>
     )
 }

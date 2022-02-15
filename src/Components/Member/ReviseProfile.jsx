@@ -57,7 +57,7 @@ const ReviseProfile = (props) => {
             <input type='status' onChange={(event) => setIsActive(event.target.value)} value={isActive}/>
             <label>Balance</label>
             <input type='balance' onChange={(event) => setBalance(event.target.value)} value={balance}/>
-            <button type='submit'>Add Member</button>
+            <button type='submit'>Update Profile</button>
         </form>
     )
 }
