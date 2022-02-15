@@ -36,8 +36,8 @@ const AllMembers = (props) => {
                     );
                 })}
 
-            </tbody
-        </table>
+            </tbody>
+            </table> 
     )
 }
 
