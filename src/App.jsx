@@ -3,6 +3,7 @@
 import axios from 'axios'; 
 import React, { useState, useEffect } from 'react';
 import CreateNewMember from './Components/Admin/CreateNewMember';
+import CreateMemberRequest from './Components/Member/CreateMemberReq';
 
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
   useEffect(() => {
     // viewAllMembers();
     createMember();
-    // membershipRequest();
+    createRequest();
     // viewProfile();
     // updateProfile();
     // createEvent();
@@ -42,13 +43,13 @@ function App() {
   };
 
 
-//  async function membershipRequest(newRequest) {
-//    let response = await axios.post('http://127.0.0.1:8000/api/members/create_membership_request/'), newRequest;
-//    if(response.status === 201) {
-//      console.log("New Request Generated")
-//      await viewAllEvents();
-//    }
-//  };
+ async function createRequest(NewRequest) {
+   let response = await axios.post('http://127.0.0.1:8000/api/members/create_membership_request/', NewRequest);
+   if(response.status === 201) {
+     console.log("New Request Generated")
+     await viewAllEvents();
+   }
+ };
  
 
 //   async function viewProfile(id) {
@@ -128,6 +129,7 @@ function App() {
   return (
     <div>
         <CreateNewMember parentEntries={members} createMember={createMember}/>
+        <CreateMemberRequest parentEntries={members} createRequest={createRequest}/>
     </div>
   );
 }
