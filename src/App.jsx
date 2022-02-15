@@ -4,6 +4,7 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import CreateNewMember from './Components/Admin/CreateNewMember';
 import CreateMemberRequest from './Components/Member/CreateMemberReq';
+import AllMembers from './Components/Admin/AllMembers';
 
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
   const [members, setMembers] = useState([]); 
 
   useEffect(() => {
-    // viewAllMembers();
+    getAllMembers();
     createMember();
     createRequest();
     // viewProfile();
@@ -28,10 +29,10 @@ function App() {
   }, [])
 
 
-  // async function viewAllMembers() {
-  //   let response = await axios.get('http://127.0.0.1:8000/api/members/view_all_members/');
-  //   setMembers(response.data)
-  // };
+  async function getAllMembers() {
+    let response = await axios.get('http://127.0.0.1:8000/api/members/view_all_members/');
+    setMembers(response.data)
+  };
 
   
   async function createMember(NewMember) {
@@ -47,17 +48,19 @@ function App() {
    let response = await axios.post('http://127.0.0.1:8000/api/members/create_membership_request/', NewRequest);
    if(response.status === 201) {
      console.log("New Request Generated")
-     await viewAllEvents();
+    //  await viewAllEvents();
    }
  };
- 
 
-//   async function viewProfile(id) {
-//     let response = await axios.get('http://127.0.0.1:8000/api/members/view_profile/${id}/'); 
-//     if(response.status === 201) {
-//       await viewAllEvents();  
-//     }
-//   };
+
+  //   async function viewSingleProfile(id) {
+  //   let response = await axios.get('http://127.0.0.1:8000/api/members/view_profile/${id}/'); 
+  //   if(response.status === 201) {
+  //     await viewAllEvents();  
+  //   }
+  // };
+
+
 
   
 //   async function updateProfile(alterProfile) {
@@ -129,7 +132,8 @@ function App() {
   return (
     <div>
         <CreateNewMember parentEntries={members} createMember={createMember}/>
-        <CreateMemberRequest parentEntries={members} createRequest={createRequest}/>
+        <CreateMemberRequest parentEntries={members} createRequest={createRequest}/> 
+        <AllMembers parentEntries={members} />
     </div>
   );
 }
