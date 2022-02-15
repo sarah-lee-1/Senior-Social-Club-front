@@ -1,10 +1,23 @@
-import { useReducer } from "react";
+import React, { useState } from 'react';
 
-const AllEvents = (props) => {
+const ViewSingleEvent = (props) => {
+    
+    const [id, setId] = useState('');
+
+    function handleSubmit(event) {
+        event.preventDefault();
+        let searchEventId = {
+            id: id
+        }
+            console.log(searchEventId);
+            props.searchforEvent(searchEventId);
+    }
+
     return (
         <table>
             <thead>
                 <tr>
+                    <th>Id</th>
                     <th>Title</th>
                     <th>Description</th>
                     <th>Month</th>
@@ -21,7 +34,8 @@ const AllEvents = (props) => {
             <tbody>
                 {props.parentEntries.map((event, index) => {
                     return (
-                        <tr key={event.id}>
+                        <tr>
+                            <td>{event.id}</td>
                             <td>{event.title}</td>
                             <td>{event.description}</td>
                             <td>{event.month}</td>
@@ -37,8 +51,7 @@ const AllEvents = (props) => {
                 })}
             </tbody>
         </table>
-
     )
 }
 
-export default AllEvents;
+export default ViewSingleEvent;
