@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const CreateRsvp = (props) => {
+const SubmitRsvp = (props) => {
 
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
@@ -27,7 +27,7 @@ const CreateRsvp = (props) => {
             email: email,
         }
         console.log(rsvpRequest);
-        props.createRsvp(rsvpRequest);
+        props.submitRsvp(rsvpRequest);
     }
 
     return (
@@ -55,4 +55,4 @@ const CreateRsvp = (props) => {
     )
 }
 
-export default CreateRsvp; 
+export default SubmitRsvp; 
