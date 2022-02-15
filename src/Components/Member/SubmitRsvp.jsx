@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const CreateNewEvent = (props) => {
+const CreateRsvp = (props) => {
 
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
@@ -8,27 +8,26 @@ const CreateNewEvent = (props) => {
     const [day, setDay] = useState('');
     const [year, setYear] = useState('');
     const [time, setTime] = useState('');
-    const [street, setStreet] = useState('');
-    const [city, setCity] = useState('');
-    const [state, setState] = useState('');
-    const [zipCode, setZipCode] = useState('');
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [email, setEmail] = useState('');
+
 
     function handleSubmit(event) {
         event.preventDefault();
-        let newEvent = {
+        let rsvpRequest = {
             title: title,
             description: description,
             month: month,
             day: day,
             year: year,
             time: time,
-            street: street,
-            city: city,
-            state: state,
-            zip_code: zipCode,
+            first_name: firstName,
+            last_name: lastName,
+            email: email,
         }
-        console.log(newEvent);
-        props.createNewEvent(newEvent);
+        console.log(rsvpRequest);
+        props.createRsvp(rsvpRequest);
     }
 
     return (
@@ -45,17 +44,15 @@ const CreateNewEvent = (props) => {
         <input type='number' onChange={(event) => setYear(event.target.value)} value={year}/>
         <label>Time</label>
         <input type='time' onChange={(event) => setTime(event.target.value)} value={time}/>
-        <label>Street</label>
-        <input type='paragraph' onChange={(event) => setStreet(event.target.value)} value={street}/>
-        <label>City</label>
-        <input type='name' onChange={(event) => setCity(event.target.value)} value={city}/>
-        <label>State</label>
-        <input type='name' onChange={(event) => setState(event.target.value)} value={state}/>
-        <label>Zip Code</label>
-        <input type='zip_code' onChange={(event) => setZipCode(event.target.value)} value={zipCode}/>
+        <label>First Name</label>
+        <input type='name' onChange={(event) => setFirstName(event.target.value)} value={firstName}/>
+        <label>Last Name</label>
+        <input type='name' onChange={(event) => setLastName(event.target.value)} value={lastName}/>
+        <label>Email</label>
+        <input type='email' onChange={(event) => setEmail(event.target.value)} value={email}/>
         <button type='submit'>Add Member</button>
     </form>
     )
 }
 
-export default CreateNewEvent; 
+export default CreateRsvp; 
