@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const CreateNewMember = (props) => {
+const CreateMemberRequest = (props) => {
     
     const [firstName, setFirstName] = useState('');
     const [middleName, setMiddleName] = useState('');
@@ -15,7 +15,7 @@ const CreateNewMember = (props) => {
 
     function handleSubmit(event) {
         event.preventDefault();
-        let newMember = {
+        let newMemberReq = {
             first_name: firstName,
             middle_name: middleName,
             last_name: lastName,
@@ -27,8 +27,8 @@ const CreateNewMember = (props) => {
             is_active: isActive,
             balance: balance, 
         }
-        console.log(newMember);
-        props.createNewMember(newMember);
+        console.log(newMemberReq);
+        props.createNewMember(newMemberReq);
     }
 
     return (
@@ -58,4 +58,4 @@ const CreateNewMember = (props) => {
     )
 }
 
-export default CreateNewMember; 
+export default CreateMemberRequest; 
