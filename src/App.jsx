@@ -33,8 +33,8 @@ function App() {
   // };
 
   
-  async function createMember() {
-    let response = await axios.post('http://127.0.0.1:8000/api/members/create_member/'), createOneMember;
+  async function createMember(NewMember) {
+    let response = await axios.post('http://127.0.0.1:8000/api/members/create_member/', NewMember);
     if(response.status ===201) {
       console.log("New Member Created!")
       // await viewAllEvents();
@@ -127,9 +127,7 @@ function App() {
 
   return (
     <div>
-
-        <CreateNewMember parentEntries={members} createMember={createMember}/>>
-      
+        <CreateNewMember parentEntries={members} createMember={createMember}/>
     </div>
   );
 }
