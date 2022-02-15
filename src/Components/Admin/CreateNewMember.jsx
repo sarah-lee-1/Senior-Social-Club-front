@@ -15,7 +15,7 @@ const CreateNewMember = (props) => {
 
     function handleSubmit(event) {
         event.preventDefault();
-        let newMember = {
+        let createOneMember = {
             first_name: firstName,
             middle_name: middleName,
             last_name: lastName,
@@ -27,8 +27,8 @@ const CreateNewMember = (props) => {
             is_active: isActive,
             balance: balance, 
         }
-        console.log(newMember);
-        props.createNewMember(newMember);
+        console.log(createOneMember);
+        props.createMember(createOneMember);
     }
 
     return (
