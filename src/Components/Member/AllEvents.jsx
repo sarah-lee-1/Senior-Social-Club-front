@@ -32,6 +32,11 @@ const AllEvents = (props) => {
                             <td>{event.city}</td>
                             <td>{event.state}</td>
                             <td>{event.zip_code}</td>
+                            <button type="button" 
+                                    class="deletebtn"
+                                    variant="danger"
+                                    className="mr-2">
+                                    Delete</button>
                         </tr>
                     );
                 })}

@@ -32,6 +32,11 @@ const AllMembers = (props) => {
                             <td>{member.zip_code}</td>
                             <td>{member.is_active}</td>
                             <td>{member.balance}</td>
+                            <button type="button" 
+                                    class="deletebtn"
+                                    variant="danger"
+                                    className="mr-2">
+                                    Delete</button>
                         </tr>
                     );
                 })}

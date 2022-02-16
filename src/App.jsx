@@ -24,13 +24,14 @@ function App() {
     createAnEvent();
     allEvents();
     
+    // viewSingleProfile(); 
     // updateProfile();
-    // viewEvent(); 
+    // viewSingleEvent(); 
     // updateEvent();
     // deleteEvent(); 
     // createRsvp();
     // viewEventMap(); 
-    // viewSingleProfile();    
+       
   }, [])
 
 
@@ -80,6 +81,15 @@ function App() {
   //   }
   // };
 
+//   // EVENTS FUNCTIONS HERE 
+
+//   async function viewSingleEvent(id) {
+//     let response = await axios.get('http://127.0.0.1:8000/api/events/view_event/${id}/');
+//     if(response.status === 201) {
+//       await viewAllEvents();
+//     }
+//   }; 
+
   
 //   async function updateProfile(alterProfile) {
 //     let response = await axios.put('http://127.0.0.1:8000/api/members/update_profile/${alterProfile.id}/'), alterProfile;
@@ -87,16 +97,6 @@ function App() {
 //       await viewAllEvents(); 
 //     }
 //   };
-
-
-//   // EVENTS FUNCTIONS HERE 
-
-//   async function viewEvent(id) {
-//     let response = await axios.get('http://127.0.0.1:8000/api/events/view_event/${id}/');
-//     if(response.status === 201) {
-//       await viewAllEvents();
-//     }
-//   }; 
 
   
 //   async function updateEvent(chgEvent) {
