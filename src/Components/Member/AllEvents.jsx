@@ -3,6 +3,7 @@ import Deletebutton from "./Z_DeleteButton"
 
 const AllEvents = (props) => {
     return (
+        <div class="box-2">
         <table>
             <thead>
                 <tr>
@@ -45,7 +46,7 @@ const AllEvents = (props) => {
                 })}
             </tbody>
         </table>
-
+        </div>
     )
 }
 

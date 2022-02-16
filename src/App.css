@@ -1,0 +1,65 @@
+a:hover {
+    color:red; 
+} 
+
+a:active {
+    color: purple;
+}
+
+body {
+    background-color:#f3e9e9;
+    color:#395558;
+    font-family:Arial,Helvetica, sans-serif;
+    font-size:16px;
+    font-weight:normal;
+    line-height:30px;
+    margin:0; 
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+}
+
+.button {
+    background-color: crimson;
+    color: #395558;
+    padding: 10px 15px;
+    border: 1px;
+    border-color: rgb(79, 19, 19);
+}
+
+.button:hover {
+    background: orange; 
+    color: white;
+}
+
+.box-1 h1{
+    font-family:Tahoma;
+    font-weight: 800;
+    font-style:italic;
+    text-decoration:underline;
+    text-transform:uppercase;
+    letter-spacing:0.2em;
+    word-spacing:1em;
+
+}
+
+.box-1 {
+    background-color: rgb(66, 82, 182);
+    color: whitesmoke;
+    border: 5px rgb(255, 145, 0);
+    padding: 20px;
+    margin: 20px;
+}
+
+
+.box-2 {
+    background-color: rgb(197, 204, 247);
+    color: rgb(41, 31, 31);
+    border: 5px rgb(255, 145, 0);
+    padding: 20px;
+    margin: 20px;
+}
+
+

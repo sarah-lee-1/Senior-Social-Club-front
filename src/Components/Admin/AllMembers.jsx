@@ -1,7 +1,9 @@
 import { useReducer } from "react";
+// import "./styles.css"; 
 
 const AllMembers = (props) => {
     return (
+        <div class="box-1">
         <table>
             <thead>
             <tr>
@@ -38,6 +40,7 @@ const AllMembers = (props) => {
 
             </tbody>
         </table> 
+        </div>
     )
 }
 
