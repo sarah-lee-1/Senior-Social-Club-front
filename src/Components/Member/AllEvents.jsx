@@ -1,4 +1,5 @@
 import { useReducer } from "react";
+import Deletebutton from "./Z_DeleteButton"
 
 const AllEvents = (props) => {
     return (
@@ -32,7 +33,9 @@ const AllEvents = (props) => {
                             <td>{event.city}</td>
                             <td>{event.state}</td>
                             <td>{event.zip_code}</td>
-                            <button type="button" 
+                            <button onClick={() =>
+                                    props.deleteEvent(event.id)}
+                                    type="button" 
                                     class="deletebtn"
                                     variant="danger"
                                     className="mr-2">
