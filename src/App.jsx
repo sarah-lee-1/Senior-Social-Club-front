@@ -7,6 +7,7 @@ import CreateMemberRequest from './Components/Member/CreateMemberReq';
 import AllMembers from './Components/Admin/AllMembers'; 
 import CreateNewEvent from './Components/Admin/CreateNewEvent';
 import AllEvents from './Components/Member/AllEvents';
+import ViewSingleProfile from './Components/Member/ViewSingleProfile';
 // import ViewSingleProfile from './Components/Member/ViewSingleProfile';
 
 
@@ -23,8 +24,8 @@ function App() {
     createRequest(); 
     createAnEvent();
     allEvents();
-    
-    // viewSingleProfile(); 
+    viewSingleProfile();
+
     // updateProfile();
     // viewSingleEvent(); 
     // updateEvent();
@@ -74,12 +75,13 @@ function App() {
 
 
 //  PULLS ALL MEMBERS
-  //   async function viewSingleProfile(id) {
-  //   let response = await axios.get('http://127.0.0.1:8000/api/members/view_profile/${id}/'); 
-  //   if(response.status === 201) {
-  //     // await viewAllEvents();  
-  //   }
-  // };
+    async function viewSingleProfile(id) {
+    let response = await axios.get('http://127.0.0.1:8000/api/members/view_profile/${id}/'); 
+    if(response.status === 201) {
+      console.log("Profile Retrieved")
+      // await viewAllEvents();  
+    }
+  };
 
 //   // EVENTS FUNCTIONS HERE 
 
@@ -142,6 +144,7 @@ function App() {
         <AllMembers parentEntries={members} />
         <CreateNewEvent parentEntries={members} createAnEvent={createAnEvent}/> 
         <AllEvents parentEntries={events} />
+        <ViewSingleProfile parentEntries={member}/>
         
     </div>
   );
