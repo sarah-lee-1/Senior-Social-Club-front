@@ -55,7 +55,18 @@ const CreateNewMember = (props) => {
             <input type='balance' onChange={(event) => setBalance(event.target.value)} value={balance}/>
             <button type='submit'>Add Member</button>
         </form>
+
     )
 }
 
 export default CreateNewMember; 
+
+        // <Fragment>
+        //     <div>
+        //         <h1>Create New Member</h1>
+        //     </div>
+        //     <div>
+        //         <h2>Form</h2>
+
+                    // </div>
+        // </Fragment>

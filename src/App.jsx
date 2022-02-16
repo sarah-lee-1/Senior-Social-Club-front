@@ -8,8 +8,7 @@ import AllMembers from './Components/Admin/AllMembers';
 import CreateNewEvent from './Components/Admin/CreateNewEvent';
 import AllEvents from './Components/Member/AllEvents';
 import ViewSingleProfile from './Components/Member/ViewSingleProfile';
-// import ViewSingleProfile from './Components/Member/ViewSingleProfile';
-
+import ReviseProfile from './Components/Member/ReviseProfile';
 
 
 function App() {
@@ -19,12 +18,12 @@ function App() {
   const [members, setMembers] = useState([]); 
 
   useEffect(() => {
-    getAllMembers();
-    createMember();
-    createRequest(); 
-    createAnEvent();
-    allEvents();
-    viewSingleProfile();
+  //   getAllMembers();
+  //   createMember();
+  //   createRequest(); 
+  //   createAnEvent();
+  //   allEvents();
+  //   viewSingleProfile();
 
     // updateProfile();
     // viewSingleEvent(); 
@@ -74,9 +73,9 @@ function App() {
   }; 
 
 
-//  PULLS ALL MEMBERS
-    async function viewSingleProfile(id) {
-    let response = await axios.get('http://127.0.0.1:8000/api/members/view_profile/${id}/'); 
+  async function viewSingleProfile(id) {
+      console.log("ViewSingleProfile - param: ", id)
+    let response = await axios.get('http://127.0.0.1:8000/api/members/view_profile/${id}/', id); 
     if(response.status === 201) {
       console.log("Profile Retrieved")
       // await viewAllEvents();  
@@ -139,13 +138,16 @@ function App() {
 
   return (
     <div>
-        <CreateNewMember parentEntries={members} createMember={createMember}/>
-        <CreateMemberRequest parentEntries={members} createRequest={createRequest}/> 
-        <AllMembers parentEntries={members} />
-        <CreateNewEvent parentEntries={members} createAnEvent={createAnEvent}/> 
-        <AllEvents parentEntries={events} />
-        <ViewSingleProfile parentEntries={member}/>
+        <ReviseProfile/>
+        {/* <ViewSingleProfile mode={'Edit'}/> */}
+        {/* <CreateNewMember parentEntries={members} createMember={createMember}/> */}
+        {/* <CreateMemberRequest parentEntries={members} createRequest={createRequest}/>  */}
+        {/* <AllMembers parentEntries={members} /> */}
+        {/* <CreateNewEvent parentEntries={members} createAnEvent={createAnEvent}/>  */}
+        {/* <AllEvents parentEntries={events} /> */}
         
+        
+
     </div>
   );
 }
