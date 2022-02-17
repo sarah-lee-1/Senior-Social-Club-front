@@ -1,5 +1,4 @@
-// ID MUST === LOGGED IN USER
-import React, { useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import axios from 'axios';
 import jwt_decode from 'jwt-decode'; 
 
@@ -22,7 +21,7 @@ const ReviseProfile = (props) => {
 
     function handleSubmit(event) {
         event.preventDefault();
-        let updatedProfile = {
+        let chgProfile = {
             id: id,
             first_name: firstName,
             middle_name: middleName,
@@ -35,8 +34,8 @@ const ReviseProfile = (props) => {
             is_active: isActive,
             balance: balance, 
         }
-        console.log(updatedProfile);
-        updateProfile(updatedProfile);
+        console.log(chgProfile);
+        props.revisedProfile(chgProfile);
     }
 
     useEffect(() => {
@@ -44,12 +43,14 @@ const ReviseProfile = (props) => {
     },[])
 
     useEffect(() => {
-        if (id !== '') udpateProfile()
+        if (id !== '') updateProfile()
     },[id])
 
     
-    async function updateProfile(profile_record) {
-        let response = await axios.put(`http://127.0.0.1:8000/api/members/update_profile/${profile_record.id}/`, profile_record)
+    async function updateProfile() {
+        console.log("ReviseProfile - param: ", id)
+        let response = 
+        await axios.put(`http://127.0.0.1:8000/api/members/update_profile/${id}/`);
         if (response.data === 200) {
             console.log("Profile Retrieved")
             let foundProfile = response.data;
@@ -68,9 +69,9 @@ const ReviseProfile = (props) => {
     };
 
     return (
+        <Fragment>
         <form onSubmit={handleSubmit}>
-            <label>Id</label>
-            <input type='number' onChange={(event) => setId(parseFloat(event.target.value))} value={id}/>
+            <h3>Update Profile</h3>
             <label>First Name</label>
             <input type='name' onChange={(event) => setFirstName(event.target.value)} value={firstName}/>
             <label>Middle Name</label>
@@ -91,12 +92,15 @@ const ReviseProfile = (props) => {
             <input type='status' onChange={(event) => setIsActive(event.target.value)} value={isActive}/>
             <label>Balance</label>
             <input type='balance' onChange={(event) => setBalance(event.target.value)} value={balance}/>
-            <button type='submit'>Update Profile</button>
+            <button type='submit' onClick={handleSubmit}>Update Profile</button>
         </form>
+        </Fragment>
     )
 }
 
 export default ReviseProfile; 
+
+// onClick={handleClick}
 
                 {/* <div>
                 <script type="text/javascript">

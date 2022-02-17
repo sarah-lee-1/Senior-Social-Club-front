@@ -107,7 +107,7 @@ function App() {
 //     }
 //   };
 
-  
+  // 
 //   async function deleteEvent(id) {
 //     console.log("App.js ID: ", id)
 //     let response = await axios.delete('http://127.0.0.1:8000/api/events/delete_event/${id}/');
@@ -138,12 +138,13 @@ function App() {
 
   return (
     <div>
-        <ReviseProfile/>
+        <ReviseProfile revisedProfile={member} revisedProfile={updateProfile}/>
         {/* <ViewSingleProfile mode={'Edit'}/> */}
         {/* <CreateNewMember parentEntries={members} createMember={createMember}/> */}
         {/* <CreateMemberRequest parentEntries={members} createRequest={createRequest}/>  */}
-        {/* <AllMembers parentEntries={members} /> */}
+        
         {/* <CreateNewEvent parentEntries={members} createAnEvent={createAnEvent}/>  */}
+        {/* <AllMembers parentEntries={members} /> */}
         {/* <AllEvents parentEntries={events} /> */}
         
         
