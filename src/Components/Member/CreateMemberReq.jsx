@@ -32,7 +32,7 @@ const CreateMemberRequest = (props) => {
     }
 
     return (
-        <div class="box-3">
+        <div class="box-1">
             <h3> Membership Request</h3>
         <form onSubmit={handleSubmit}>
             <label>First Name</label>
