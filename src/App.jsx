@@ -8,7 +8,8 @@ import AllMembers from './Components/Admin/AllMembers';
 import CreateNewEvent from './Components/Admin/CreateNewEvent';
 import AllEvents from './Components/Member/AllEvents';
 import ViewSingleProfile from './Components/Member/ViewSingleProfile';
-import ReviseProfile from './Components/Member/ReviseProfile';
+import NavBar from './Components/Navbar/Navbar';
+// import ReviseProfile from './Components/Member/ReviseProfile';
 
 
 function App() {
@@ -25,7 +26,7 @@ function App() {
   //   allEvents();
   //   viewSingleProfile();
 
-    // updateProfile();
+    // revisedProfile();
     // viewSingleEvent(); 
     // updateEvent();
     // deleteEvent(); 
@@ -138,7 +139,8 @@ function App() {
 
   return (
     <div>
-        <ReviseProfile revisedProfile={member} revisedProfile={updateProfile}/>
+      <NavBar/>
+        {/* <ReviseProfile revisedProfile={chgProfile}/> */}
         {/* <ViewSingleProfile mode={'Edit'}/> */}
         {/* <CreateNewMember parentEntries={members} createMember={createMember}/> */}
         {/* <CreateMemberRequest parentEntries={members} createRequest={createRequest}/>  */}
