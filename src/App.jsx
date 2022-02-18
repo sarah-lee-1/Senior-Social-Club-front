@@ -6,6 +6,7 @@ import AllMembers from './Components/Admin/AllMembers';
 import CreateNewMember from './Components/Admin/CreateNewMember';
 import CreateMemberRequest from './Components/Member/CreateMemberReq';
 import ViewSingleProfile from './Components/Member/ViewSingleProfile';
+import ReviseProfile from './Components/Member/ReviseProfile';
 import CreateNewEvent from './Components/Admin/CreateNewEvent';
 import AllEvents from './Components/Member/AllEvents';
 
@@ -24,10 +25,10 @@ function App() {
     createMember();
     createRequest(); 
     viewSingleProfile(); 
-
+    updateProfile();
   //   createAnEvent();
   //   allEvents();
-    // revisedProfile();
+
     // viewSingleEvent();
     // updateEvent();
     // deleteEvent(); 
@@ -86,6 +87,13 @@ function App() {
 
 //   // EVENTS FUNCTIONS HERE 
 
+  // async function updateProfile(alterProfile) {
+  //   let response = await axios.put('http://127.0.0.1:8000/api/members/update_profile/${alterProfile.id}/'), alterProfile;
+  //   if(response.data === 201) {
+  //     await viewAllEvents(); 
+  //   }
+  // };
+
 //   async function viewSingleEvent(id) {
 //     let response = await axios.get('http://127.0.0.1:8000/api/events/view_event/${id}/');
 //     if(response.status === 201) {
@@ -94,12 +102,7 @@ function App() {
 //   }; 
 
   
-//   async function updateProfile(alterProfile) {
-//     let response = await axios.put('http://127.0.0.1:8000/api/members/update_profile/${alterProfile.id}/'), alterProfile;
-//     if(response.data === 201) {
-//       await viewAllEvents(); 
-//     }
-//   };
+
 
   
 //   async function updateEvent(chgEvent) {
@@ -143,16 +146,16 @@ function App() {
               
         <ViewSingleProfile mode={'Edit'}/>
         <CreateMemberRequest parentEntries={members} createRequest={createRequest}/> 
-
         <AllMembers parentEntries={members} />
         <CreateNewMember parentEntries={members} createMember={createMember}/>
-        
+
+        <ReviseProfile revisedProfile={chgProfile}/>
         
         {/* <CreateNewEvent parentEntries={members} createAnEvent={createAnEvent}/>  */}
         
         {/* <AllEvents parentEntries={events} /> */}
 
-        {/* <ReviseProfile revisedProfile={chgProfile}/> */}
+
         {/* <NavBar/> */}
         
     </div>
