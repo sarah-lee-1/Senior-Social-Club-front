@@ -32,6 +32,8 @@ const CreateMemberRequest = (props) => {
     }
 
     return (
+        <div class="box-3">
+            <h3> Membership Request</h3>
         <form onSubmit={handleSubmit}>
             <label>First Name</label>
             <input type='name' onChange={(event) => setFirstName(event.target.value)} value={firstName}/>
@@ -53,8 +55,9 @@ const CreateMemberRequest = (props) => {
             <input type='status' onChange={(event) => setIsActive(event.target.value)} value={isActive}/>
             <label>Balance</label>
             <input type='balance' onChange={(event) => setBalance(event.target.value)} value={balance}/>
-            <button type='submit'>Submit RSVP</button>
+            <button type='submit'>Membership Request</button>
         </form>
+        </div>
     )
 }
 

@@ -142,8 +142,9 @@ function App() {
     <div>
               
         <ViewSingleProfile mode={'Edit'}/>
-        <AllMembers parentEntries={members} />
         <CreateMemberRequest parentEntries={members} createRequest={createRequest}/> 
+
+        <AllMembers parentEntries={members} />
         <CreateNewMember parentEntries={members} createMember={createMember}/>
         
         

@@ -4,6 +4,7 @@
 const AllMembers = (props) => {
     return (
         <div class="box-1">
+            <h3>Membership Directory</h3>
         <table>
             <thead>
             <tr>

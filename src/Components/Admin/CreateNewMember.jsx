@@ -32,6 +32,8 @@ const CreateNewMember = (props) => {
     }
 
     return (
+        <div class="box-1">
+            <h3>Membership Approval</h3>
         <form onSubmit={handleSubmit}>
             <label>First Name</label>
             <input type='name' onChange={(event) => setFirstName(event.target.value)} value={firstName}/>
@@ -55,7 +57,7 @@ const CreateNewMember = (props) => {
             <input type='balance' onChange={(event) => setBalance(event.target.value)} value={balance}/>
             <button type='submit'>Add Member</button>
         </form>
-
+        </div>
     )
 }
 
