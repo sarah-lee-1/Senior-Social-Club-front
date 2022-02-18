@@ -73,7 +73,7 @@ const ViewSingleProfile = (props) => {
             <div>
                 <h1>Member Profile</h1>
             </div>
-            <div>
+            <div class="box-2">
                 <h2>Form</h2>
                 <h4>{firstName}</h4>
                 <h4>{middleName}</h4>

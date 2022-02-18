@@ -2,13 +2,14 @@
 // import ReactDOM from 'react-dom';
 import axios from 'axios'; 
 import React, { useState, useEffect } from 'react';
+import AllMembers from './Components/Admin/AllMembers'; 
 import CreateNewMember from './Components/Admin/CreateNewMember';
 import CreateMemberRequest from './Components/Member/CreateMemberReq';
-import AllMembers from './Components/Admin/AllMembers'; 
+import ViewSingleProfile from './Components/Member/ViewSingleProfile';
 import CreateNewEvent from './Components/Admin/CreateNewEvent';
 import AllEvents from './Components/Member/AllEvents';
-import ViewSingleProfile from './Components/Member/ViewSingleProfile';
-import NavBar from './Components/Navbar/Navbar';
+
+// import NavBar from './Components/Navbar/Navbar';
 // import ReviseProfile from './Components/Member/ReviseProfile';
 
 
@@ -19,15 +20,15 @@ function App() {
   const [members, setMembers] = useState([]); 
 
   useEffect(() => {
-  //   getAllMembers();
-  //   createMember();
-  //   createRequest(); 
+    getAllMembers();
+    createMember();
+    createRequest(); 
+    viewSingleProfile(); 
+
   //   createAnEvent();
   //   allEvents();
-  //   viewSingleProfile();
-
     // revisedProfile();
-    // viewSingleEvent(); 
+    // viewSingleEvent();
     // updateEvent();
     // deleteEvent(); 
     // createRsvp();
@@ -139,18 +140,20 @@ function App() {
 
   return (
     <div>
-      <NavBar/>
-        {/* <ReviseProfile revisedProfile={chgProfile}/> */}
-        {/* <ViewSingleProfile mode={'Edit'}/> */}
-        {/* <CreateNewMember parentEntries={members} createMember={createMember}/> */}
-        {/* <CreateMemberRequest parentEntries={members} createRequest={createRequest}/>  */}
+              
+        <ViewSingleProfile mode={'Edit'}/>
+        <AllMembers parentEntries={members} />
+        <CreateMemberRequest parentEntries={members} createRequest={createRequest}/> 
+        <CreateNewMember parentEntries={members} createMember={createMember}/>
+        
         
         {/* <CreateNewEvent parentEntries={members} createAnEvent={createAnEvent}/>  */}
-        {/* <AllMembers parentEntries={members} /> */}
+        
         {/* <AllEvents parentEntries={events} /> */}
-        
-        
 
+        {/* <ReviseProfile revisedProfile={chgProfile}/> */}
+        {/* <NavBar/> */}
+        
     </div>
   );
 }
