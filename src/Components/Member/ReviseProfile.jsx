@@ -35,7 +35,7 @@ const ReviseProfile = (props) => {
             balance: balance, 
         }
         console.log(chgProfile);
-        revisedProfile(chgProfile);
+        props.updateProfile(chgProfile);
     }
 
     useEffect(() => {
@@ -68,10 +68,13 @@ const ReviseProfile = (props) => {
         }
     };
 
+    {props.parentEntries.map((member, index) => {
     return (
         <Fragment>
         <form onSubmit={handleSubmit}>
             <h3>Update Profile</h3>
+            <label>Member Id</label>
+            <input type='number' onChange={(event) => setId(event.target.value)} value={id}/>
             <label>First Name</label>
             <input type='name' onChange={(event) => setFirstName(event.target.value)} value={firstName}/>
             <label>Middle Name</label>
@@ -95,7 +98,8 @@ const ReviseProfile = (props) => {
             <button type='submit' onClick={handleSubmit}>Update Profile</button>
         </form>
         </Fragment>
-    )
+    );
+})}
 }
 
 export default ReviseProfile; 

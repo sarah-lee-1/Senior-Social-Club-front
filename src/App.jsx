@@ -149,7 +149,7 @@ function App() {
         <AllMembers parentEntries={members} />
         <CreateNewMember parentEntries={members} createMember={createMember}/>
 
-        <ReviseProfile revisedProfile={chgProfile}/>
+        <ReviseProfile updateProfile={updateProfile}/>
         
         {/* <CreateNewEvent parentEntries={members} createAnEvent={createAnEvent}/>  */}
         
