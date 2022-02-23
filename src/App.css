@@ -99,4 +99,5 @@ body {
     padding: 20px;
     margin: 20px;
     text-align: left; 
+    display: flex; 
 }

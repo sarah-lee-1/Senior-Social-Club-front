@@ -51,3 +51,5 @@ const AllEvents = (props) => {
 }
 
 export default AllEvents;
+
+// ADD DELETE BUTTON FOR ADMIN 

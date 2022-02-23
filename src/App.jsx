@@ -6,7 +6,7 @@ import AllMembers from './Components/Admin/AllMembers';
 import CreateNewMember from './Components/Admin/CreateNewMember';
 import CreateMemberRequest from './Components/Member/CreateMemberReq';
 import ViewSingleProfile from './Components/Member/ViewSingleProfile';
-import ReviseProfile from './Components/Member/ReviseProfile';
+// import ReviseProfile from './Components/Member/ReviseProfileOrif';
 import CreateNewEvent from './Components/Admin/CreateNewEvent';
 import AllEvents from './Components/Member/AllEvents';
 
@@ -25,7 +25,7 @@ function App() {
     createMember();
     createRequest(); 
     viewSingleProfile(); 
-    updateProfile();
+    // updateProfile();
   //   createAnEvent();
   //   allEvents();
 
@@ -149,7 +149,7 @@ function App() {
         <AllMembers parentEntries={members} />
         <CreateNewMember parentEntries={members} createMember={createMember}/>
 
-        <ReviseProfile updateProfile={updateProfile}/>
+        {/* <ReviseProfile revisedProfile={members} revisedProfile={revisedProfile}/> */}
         
         {/* <CreateNewEvent parentEntries={members} createAnEvent={createAnEvent}/>  */}
         

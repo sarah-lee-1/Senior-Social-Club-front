@@ -57,3 +57,5 @@
 // }
 
 // export default RemoveEvent;
+
+{/* <Button onClick={() => onDelete(data.id)}>Delete</Button> */}
