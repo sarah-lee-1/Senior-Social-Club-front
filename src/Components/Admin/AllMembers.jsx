@@ -174,6 +174,7 @@ const AllMembers = (props) => {
 
                 </body>
             </table>
+            </form>
 
             <h3>Add a Member</h3>
             <form onSubmit={handleAddFormSubmit}>
@@ -254,21 +255,7 @@ const AllMembers = (props) => {
                 })}
             </form>
         </div>
-    )
+    );
 }
 
 export default AllMembers; 
-{/* 
-                        // <tr key={member.id}>
-                        //     <td>{member.first_name}</td>
-                        //     <td>{member.middle_name}</td>
-                        //     <td>{member.last_name}</td>
-                        //     <td>{member.email}</td>
-                        //     <td>{member.address}</td>
-                        //     <td>{member.city}</td>
-                        //     <td>{member.state}</td>
-                        //     <td>{member.zip_code}</td>
-                        //     <td>{member.is_active}</td>
-                        //     <td>{member.balance}</td> 
-                        //     <button type='submit'>Add</button>
-                        // </tr> */}
