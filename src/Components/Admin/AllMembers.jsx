@@ -139,21 +139,21 @@ const AllMembers = (props) => {
 
     return (
         <div class="container-1">
-            <h3>Member Directory</h3>  
+            <h2>Member Directory</h2>  
         <form onSubmit={handleEditFormSubmit}>
             <table>
-                <tr>
-                    <th>First Name</th>
-                    <th>Middle Name</th>
-                    <th>Last Name</th>
-                    <th>Email</th>
-                    <th>Street Address</th>
-                    <th>City</th>
-                    <th>State</th>
-                    <th>Zip Code</th>
-                    <th>Active Status</th>
-                    <th>Balance</th>
-                </tr>
+                <thead>
+                    <tr>First Name</tr>
+                    <tr>Middle Name</tr>
+                    <tr>Last Name</tr>
+                    <tr>Email</tr>
+                    <tr>Street Address</tr>
+                    <tr>City</tr>
+                    <tr>State</tr>
+                    <tr>Zip Code</tr>
+                    <tr>Active Status</tr>
+                    <tr>Balance</tr>
+                </thead>
 
                 <body>
                     {members.map((member) => (
@@ -174,25 +174,101 @@ const AllMembers = (props) => {
 
                 </body>
             </table>
-        </form>
+
+            <h3>Add a Member</h3>
+            <form onSubmit={handleAddFormSubmit}>
                 {props.parentEntries.map((member, index) => {
                     return (
-                        <tr key={member.id}>
-                            <td>{member.first_name}</td>
-                            <td>{member.middle_name}</td>
-                            <td>{member.last_name}</td>
-                            <td>{member.email}</td>
-                            <td>{member.address}</td>
-                            <td>{member.city}</td>
-                            <td>{member.state}</td>
-                            <td>{member.zip_code}</td>
-                            <td>{member.is_active}</td>
-                            <td>{member.balance}</td> 
-                        </tr>
+                    <form>
+                        <input 
+                        name='firstName'
+                        type='text'
+                        required='required'
+                        placeholder='Enter first name...'
+                        onChange={handleAddFormChange} />
+
+                        <input
+                        name='middleName'
+                        type='text'
+                        required='required'
+                        placeholder='Enter middle name...'
+                        onChange={handleAddFormChange} />
+
+                        <input
+                        name='lastName'
+                        type='text' 
+                        required='required'
+                        placeholder='Enter last name...'               
+                        onChange={handleAddFormChange} />
+
+                        <input 
+                        name='email'         
+                        type='text' 
+                        required='required'
+                        placeholder='Enter email...'
+                        onChange={handleAddFormChange} />
+
+                        <input
+                        name='address' 
+                        type='text'
+                        required='required'
+                        placeholder='Enter address...'
+                        onChange={handleAddFormChange} />
+
+                        <input  
+                        name='city'
+                        type='text'
+                        required='required'
+                        placeholder='Enter city...'
+                        onChange={handleAddFormChange} />
+
+                        <input
+                        name='state'
+                        type='text' 
+                        required='required'
+                        placeholder='Enter state'
+                        onChange={handleAddFormChange} />
+                    
+                        <input
+                        name='zipCode' 
+                        type='text' 
+                        required='required'
+                        placeholder='Enter zip code...'
+                        onChange={handleAddFormChange} />
+                  
+                        <input 
+                        name='isActive' 
+                        type='integer' 
+                        required='required'
+                        placeholder='Is member active? '
+                        onChange={handleAddFormChange} />
+                 
+                        <input
+                        name='balance' 
+                        type='integer' 
+                        required='required'
+                        placeholder='Enter balance'
+                        onChange={handleAddFormChange} />
+                    </form>
                     );
                 })}
+            </form>
         </div>
     )
 }
 
 export default AllMembers; 
+{/* 
+                        // <tr key={member.id}>
+                        //     <td>{member.first_name}</td>
+                        //     <td>{member.middle_name}</td>
+                        //     <td>{member.last_name}</td>
+                        //     <td>{member.email}</td>
+                        //     <td>{member.address}</td>
+                        //     <td>{member.city}</td>
+                        //     <td>{member.state}</td>
+                        //     <td>{member.zip_code}</td>
+                        //     <td>{member.is_active}</td>
+                        //     <td>{member.balance}</td> 
+                        //     <button type='submit'>Add</button>
+                        // </tr> */}
