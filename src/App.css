@@ -72,6 +72,17 @@ body {
 
 }
 
+
+.container-1 {
+    background-color: rgb(233, 217, 217);
+    color: #395558;
+    border: 5px rgb(255, 145, 0);
+    padding: 20px;
+    margin: 20px;
+    text-align: left; 
+    display: flex; 
+}
+
 .box-1 {
     background-color: rgb(233, 217, 217);
     color: #395558;
