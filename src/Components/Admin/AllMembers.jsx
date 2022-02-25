@@ -3,9 +3,23 @@ import './App.css';
 import AllMembersRoR from './AllMembersRoR';
 import AllMembersEditRow from './AllMembersEditRow';
 
+
 const AllMembers = (props) => {
+    const [id, setid] = useState('');
+    const [firstName, setFirstName] = useState('');
+    const [middleName, setMiddleName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [email, setEmail] = useState('');
+    const [address, setAddress] = useState('');
+    const [city, setCity] = useState('');
+    const [state, setState] = useState('');
+    const [zipCode, setZipCode] = useState('');
+    const [isActive, setIsActive] = useState(''); 
+    const [balance, setBalance] = useState('');
+
     const [members, setMembers] = useState('');
     const[addFormData, setAddFormData] = useState({
+        id: id,
         first_name: firstName,
         middle_name: middleName,
         last_name: lastName,
@@ -19,6 +33,7 @@ const AllMembers = (props) => {
     });
 
     const [editFormData, setEditFormData] = useState({
+        id: id,
         first_name: firstName,
         middle_name: middleName,
         last_name: lastName,
@@ -39,11 +54,11 @@ const AllMembers = (props) => {
         const fieldName = event.target.getAttribute('name');
         const fieldValue = event.target.value; 
     
-        const newFormData = {...AddFormData};
+        const newFormData = {...addFormData};
         newFormData[fieldName] = fieldValue;
     
         setAddFormData(newFormData);
-    }
+    };
 
     const handleEditFormChange = (event) => {
         event.preventDefault();
@@ -55,7 +70,7 @@ const AllMembers = (props) => {
         newFormData[fieldName] = fieldValue;
 
         setEditFormData(newFormData);
-    }  
+    };
 
     const handleAddFormSubmit = (event) => {
         event.preventDefault();
