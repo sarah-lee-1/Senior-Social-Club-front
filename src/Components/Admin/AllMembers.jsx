@@ -49,7 +49,7 @@ const AllMembers = (props) => {
         event.preventDefault();
 
         const fieldName = event.target.getAttribute('name');
-        const fieldName = event.target.value;
+        const fieldValue = event.target.value;
 
         const newFormData = {...editFormData};
         newFormData[fieldName] = fieldValue;
@@ -250,6 +250,8 @@ const AllMembers = (props) => {
                         required='required'
                         placeholder='Enter balance'
                         onChange={handleAddFormChange} />
+
+                        <button type='submit'>Add</button>
                     </form>
                     );
                 })}
