@@ -22,7 +22,9 @@ function App() {
 
   useEffect(() => {
     getAllMembers();
-    // createMember();
+    createMember();
+
+    
     // createRequest(); 
     // viewSingleProfile(); 
     // // updateProfile();
@@ -44,13 +46,20 @@ function App() {
   };
 
   
-//   async function createMember(NewMember) {
-//     let response = await axios.post('http://127.0.0.1:8000/api/members/create_member/', NewMember);
-//     if(response.status ===201) {
-//       console.log("New Member Created!")
-//       // await viewAllEvents();
-//     }
-//   };
+  async function createMember(NewMember) {
+    let response = await axios.post('http://127.0.0.1:8000/api/members/create_member/', NewMember);
+    if(response.status ===201) {
+      console.log("New Member Created!")
+      // await viewAllEvents();
+    }
+  };
+
+  async function updateProfile(alterProfile) {
+    let response = await axios.put('http://127.0.0.1:8000/api/members/update_profile/${alterProfile.id}/'), alterProfile;
+    if(response.data === 201) {
+      // await viewAllEvents(); 
+    }
+  };
 
 //  async function createRequest(NewRequest) {
 //    let response = await axios.post('http://127.0.0.1:8000/api/members/create_membership_request/', NewRequest);
@@ -87,12 +96,7 @@ function App() {
 
 //   // EVENTS FUNCTIONS HERE 
 
-  // async function updateProfile(alterProfile) {
-  //   let response = await axios.put('http://127.0.0.1:8000/api/members/update_profile/${alterProfile.id}/'), alterProfile;
-  //   if(response.data === 201) {
-  //     await viewAllEvents(); 
-  //   }
-  // };
+
 
 //   async function viewSingleEvent(id) {
 //     let response = await axios.get('http://127.0.0.1:8000/api/events/view_event/${id}/');
@@ -143,7 +147,7 @@ function App() {
 
   return (
     <div>
-        <AllMembers addFormSubmit={members}/>      
+        <AllMembers parentEntries={members}/>      
         {/* <ViewSingleProfile mode={'Edit'}/>
         <CreateMemberRequest parentEntries={members} createRequest={createRequest}/> 
         <AllMembers parentEntries={members} />
