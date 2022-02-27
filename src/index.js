@@ -2,23 +2,20 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import './App.css'; 
-// import {
-//   BrowserRouter as Router,
-//   Routes,
-//   Route,
-//   Link
-// } from 'react-router-dom'
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from 'react-router-dom'
 
 
 ReactDOM.render(
 
-      <App />
+    <React.StrictMode>
+          <App />
+     </React.StrictMode>,
+ 
 
-  , document.getElementById('root')
+   document.getElementById('root')
     );
-
-
-  // <Router>
-  //   <React.StrictMode>
-  //   </React.StrictMode>
-  // </Router> 

@@ -9,9 +9,16 @@ import ViewSingleProfile from './Components/Member/ViewSingleProfile';
 // import ReviseProfile from './Components/Member/ReviseProfileOrif';
 import CreateNewEvent from './Components/Admin/CreateNewEvent';
 import AllEvents from './Components/Member/AllEvents';
+import EditAM from './Components/Admin/EditAM';
 
 // import NavBar from './Components/Navbar/Navbar';
 // import ReviseProfile from './Components/Member/ReviseProfile';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from 'react-router-dom'
 
 
 function App() {
@@ -22,14 +29,13 @@ function App() {
 
   useEffect(() => {
     getAllMembers();
-    createMember();
-
-    
+     // UpdateProfile(); 
+    // createMember();
+   
     // createRequest(); 
     // viewSingleProfile(); 
-    // // updateProfile();
-  //   createAnEvent();
-  //   allEvents();
+    //  createAnEvent();
+    //  allEvents();
 
     // viewSingleEvent();
     // updateEvent();
@@ -45,21 +51,23 @@ function App() {
     setMembers(response.data)
   };
 
-  
-  async function createMember(NewMember) {
-    let response = await axios.post('http://127.0.0.1:8000/api/members/create_member/', NewMember);
-    if(response.status ===201) {
-      console.log("New Member Created!")
-      // await viewAllEvents();
-    }
-  };
-
-  async function updateProfile(alterProfile) {
-    let response = await axios.put('http://127.0.0.1:8000/api/members/update_profile/${alterProfile.id}/'), alterProfile;
+    async function updateProfile() {
+    let response = await axios.put('http://127.0.0.1:8000/api/members/update_profile/${alterProfile.id}/');
     if(response.data === 201) {
       // await viewAllEvents(); 
     }
   };
+
+
+  // async function createMember(NewMember) {
+  //   let response = await axios.post('http://127.0.0.1:8000/api/members/create_member/', NewMember);
+  //   if(response.status ===201) {
+  //     console.log("New Member Created!")
+  //     // await viewAllEvents();
+  //   }
+  // };
+
+
 
 //  async function createRequest(NewRequest) {
 //    let response = await axios.post('http://127.0.0.1:8000/api/members/create_membership_request/', NewRequest);
@@ -147,7 +155,14 @@ function App() {
 
   return (
     <div>
-        <AllMembers parentEntries={members}/>      
+        <Router>
+        <Routes>
+  
+          <Route path='/update_profile' element={<EditAM members={members}/>}/>
+          
+        </Routes>
+        </Router>
+      {/* // <Route AllMembers parentEntries={members}/>   */}
         {/* <ViewSingleProfile mode={'Edit'}/>
         <CreateMemberRequest parentEntries={members} createRequest={createRequest}/> 
         <AllMembers parentEntries={members} />
@@ -168,6 +183,7 @@ function App() {
 
 export default App;
 
+{/* <Route exact path='/*' element={<Home user={user}/>}/>  */}
 
 {/* <ViewSingleProfile parentEntries={members}/> RETURNS ALL MEMBERS */}
 
@@ -176,3 +192,13 @@ export default App;
 {/* <Routes>
   <Route path='/create_member/' element={CreateMember setMember{setMember}}/> 
 </Routes> */}
+
+
+// <Link to="/about">About</Link>
+// <div>
+//         <Routes>
+//           <Route exact path='/*' element={<Home user={user}/>} />
+//           <Route path='/login/' element={<Login setUser={setUser}/>} />
+//           <Route path='/register/' element={<Register/>} />
+//         </Routes>
+//     </div>
