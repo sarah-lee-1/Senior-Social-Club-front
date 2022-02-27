@@ -29,7 +29,7 @@
 
 //     function handleSubmit(event) {
 //         let newUser = {
-//             userName: username,
+//             username: username,
 //             password: password,
 //             first_name: firstName,
 //             middle_name: middleName,
