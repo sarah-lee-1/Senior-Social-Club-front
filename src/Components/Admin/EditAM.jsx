@@ -1,15 +1,16 @@
 import { useReducer} from "react";
-import { Link } from 'react-router-dom'; 
-
+// import { Link } from 'react-router-dom'; 
 
 
 const EditAM = (props) => {
+    console.log(props.members)
     return (
-        <div class="box-3">
+        <div className="box-3">
             <h3>Membership Directory</h3>
         <table>
             <thead>
             <tr>
+                <th></th>
                 <th>First Name</th>
                 <th>Middle Name</th>
                 <th>Last Name</th>
@@ -26,7 +27,7 @@ const EditAM = (props) => {
             <tbody>
                 {props.members.map((member, index) => {
                     return (
-                        <tr key={member.id}>
+                        <tr key={index}>
                             <td>{member.first_name}</td>
                             <td>{member.middle_name}</td>
                             <td>{member.last_name}</td>
@@ -38,9 +39,9 @@ const EditAM = (props) => {
                             <td>{member.is_active}</td>
                             <td>{member.balance}</td> 
 
-                            <li>
+                            {/* <li>
                                 <Link to="/EditAM">Update</Link>
-                            </li>
+                            </li> */}
                         </tr>
 
                     );
@@ -57,9 +58,9 @@ export default EditAM;
 
 
 
-{/* <td>
-<button type='submit'>Save</button>
-<button type='button' 
-onclick={handleCancelClick}>Cancel</button>
+// {/* <td>
+// <button type='submit'>Save</button>
+// <button type='button' 
+// onclick={handleCancelClick}>Cancel</button>
 
-</td> */}
+// </td> */}

@@ -155,13 +155,19 @@ function App() {
 
   return (
     <div>
-        <Router>
-        <Routes>
+        <AllMembers members={members}/>
   
+        {/* <Router>
+          <Routes>
+    
           <Route path='/update_profile' element={<EditAM members={members}/>}/>
-          
-        </Routes>
-        </Router>
+            
+          </Routes>
+        </Router> */}
+
+        
+
+        {/* <Route path='/update_members/' element={<AllMembers members={members}/>}/>  */}
       {/* // <Route AllMembers parentEntries={members}/>   */}
         {/* <ViewSingleProfile mode={'Edit'}/>
         <CreateMemberRequest parentEntries={members} createRequest={createRequest}/> 
