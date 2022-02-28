@@ -2,7 +2,6 @@ import React, { useState, Fragment } from 'react';
 import AllMembersRoR from './AllMembersRoR';
 import AllMembersEditRow from './AllMembersEditRow';
 
-
 const AllMembers = (props) => {
     console.log(props.members)
     const [id, setid] = useState('');
@@ -17,7 +16,6 @@ const AllMembers = (props) => {
     const [isActive, setIsActive] = useState(''); 
     const [balance, setBalance] = useState('');
 
-     
     const[addFormData, setAddFormData] = useState({
         id: id,
         first_name: firstName,
