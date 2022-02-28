@@ -1,7 +1,6 @@
 import React from 'react' 
     
 const AllMembersEditRow = ({ editFormData, handleEditFormChange, handleCancelClick }) => {
-    console.log(editFormData)
     return (
         <tr>
             <td>
@@ -10,7 +9,7 @@ const AllMembersEditRow = ({ editFormData, handleEditFormChange, handleCancelCli
                 type='text'
                 required='required'
                 placeholder='Enter first name...'
-                value={editFormData.firstName}
+                value={editFormData.first_name}
                 onChange={handleEditFormChange} />
             </td>
             <td>
@@ -19,7 +18,7 @@ const AllMembersEditRow = ({ editFormData, handleEditFormChange, handleCancelCli
                 type='text'
                 required='required'
                 placeholder='Enter middle name...'
-                value={editFormData.middleName}
+                value={editFormData.middle_name}
                 onChange={handleEditFormChange} />
             </td> 
             <td>
@@ -28,7 +27,7 @@ const AllMembersEditRow = ({ editFormData, handleEditFormChange, handleCancelCli
                 type='text' 
                 required='required'
                 placeholder='Enter last name...'
-                value={editFormData.lastName}                 
+                value={editFormData.last_name}                 
                 onChange={handleEditFormChange} />
             </td>
             <td>
@@ -73,7 +72,7 @@ const AllMembersEditRow = ({ editFormData, handleEditFormChange, handleCancelCli
                 type='text' 
                 required='required'
                 placeholder='Enter zip code...'
-                value={editFormData.zipCode}
+                value={editFormData.zip_code}
                 onChange={handleEditFormChange} />
             </td> 
             <td>
@@ -82,7 +81,7 @@ const AllMembersEditRow = ({ editFormData, handleEditFormChange, handleCancelCli
                 type='integer' 
                 required='required'
                 placeholder='Is member active? '
-                value={editFormData.isActive}
+                value={editFormData.is_active}
                 onChange={handleEditFormChange} />
             </td>
             <td>
@@ -91,12 +90,14 @@ const AllMembersEditRow = ({ editFormData, handleEditFormChange, handleCancelCli
                 type='integer' 
                 required='required'
                 placeholder='Enter balance'
+                value={editFormData.balance}
                 onChange={handleEditFormChange} />
             </td>
             <td>
-                <button type='submit'>Save</button>
+                <button type='submit'
+                >Save</button>
                 <button type='button' 
-                onclick={handleCancelClick}>Cancel</button>
+                onClick={handleCancelClick}>Cancel</button>
 
             </td>
         </tr>

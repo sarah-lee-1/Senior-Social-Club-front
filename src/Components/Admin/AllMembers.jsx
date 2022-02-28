@@ -2,8 +2,8 @@ import React, { useState, Fragment } from 'react';
 import AllMembersRoR from './AllMembersRoR';
 import AllMembersEditRow from './AllMembersEditRow';
 
-const AllMembers = (props) => {
-    console.log(props.members)
+const AllMembers = (props, updateMember) => {
+    console.log(props)
     const [id, setid] = useState('');
     const [firstName, setFirstName] = useState('');
     const [middleName, setMiddleName] = useState('');
@@ -15,6 +15,7 @@ const AllMembers = (props) => {
     const [zipCode, setZipCode] = useState('');
     const [isActive, setIsActive] = useState(''); 
     const [balance, setBalance] = useState('');
+    const [members, setMembers] = useState([]); 
 
     const[addFormData, setAddFormData] = useState({
         id: id,
@@ -66,7 +67,6 @@ const AllMembers = (props) => {
 
         const newFormData = {...editFormData};
         newFormData[fieldName] = fieldValue;
-
         setEditFormData(newFormData);
     };
 
@@ -75,63 +75,64 @@ const AllMembers = (props) => {
 
         const newMember = {
             id: id, 
-            first_name: addFormData.firstName,
-            middle_name: addFormData.middleName,
-            last_name: addFormData.lastName,
+            first_name: addFormData.first_name,
+            middle_name: addFormData.middle_name,
+            last_name: addFormData.last_name,
             email: addFormData.email,
             address: addFormData.address,
             city: addFormData.city,
             state: addFormData.state, 
-            zip_code: addFormData.zipCode,
-            is_active: addFormData.isActive,
+            zip_code: addFormData.zip_code,
+            is_active: addFormData.is_active,
             balance: addFormData.balance, 
         }; 
         const newMembers = [...props.members, newMember];
-        props.setMembers(newMembers);
+        setMembers(newMembers);
     };
 
     const handleEditFormSubmit = (event) => {
         event.preventDefault();
-
+        console.log("handleEditFormSubmit: here it is   " + editMemberId)
         const editedMember = {
             id: editMemberId, 
-            first_name: editMemberId.firstName,
-            middle_name: editMemberId.middleName,
-            last_name: editMemberId.lastName,
-            email: editMemberId.email,
-            address: editMemberId.address,
-            city: editMemberId.city,
-            state: editMemberId.state, 
-            zip_code: editMemberId.zipCode,
-            is_active: editMemberId.isActive,
-            balance: editMemberId.balance, 
+            first_name: editFormData.first_name,
+            middle_name: editFormData.middle_name,
+            last_name: editFormData.last_name,
+            email: editFormData.email,
+            address: editFormData.address,
+            city: editFormData.city,
+            state: editFormData.state, 
+            zip_code: editFormData.zip_code,
+            is_active: editFormData.is_active,
+            balance: editFormData.balance, 
         };
-
+        console.log(editedMember)
         const newMembers = [...props.members];
 
         const index = props.members.findIndex((member) =>
         member.id === editMemberId );
-
         newMembers[index] = editedMember; 
 
-        props.setMembers(newMembers); 
+        setMembers(newMembers); 
         setEditMemberId(null);
+        console.log(editedMember)
+        updateMember(editedMember);
     }; 
-
+    
     const handleEditClick = (event, member) => {
         event.preventDefault();
         setEditMemberId(member.id)
-
+        
         const formValues = {
-            first_name: member.firstName,
-            middle_name: member.middleName,
-            last_name: member.lastName,
+            first_name: member.first_name,
+            middle_name: member.middle_name,
+            last_name: member.last_name,
             email: member.email,
             address: member.address,
             city: member.city,
             state: member.state, 
-            zip_code: member.zipCode,
-            is_active: member.isActive,
+            zip_code: member.zip_code,
+            is_active: member.is_active,
             balance: member.balance,
         };
 
@@ -146,7 +147,7 @@ const AllMembers = (props) => {
         const newMembers = [...props.members];
         const index = props.members.findIndex((member)=> member.id === memberId);
         newMembers.splice(index, 1);
-        props.setMembers(newMembers);
+        setMembers(newMembers);
     };
 
     return (

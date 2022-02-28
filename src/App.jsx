@@ -29,7 +29,8 @@ function App() {
 
   useEffect(() => {
     getAllMembers();
-     // UpdateProfile(); 
+    updateMember(); 
+    
     // createMember();
    
     // createRequest(); 
@@ -47,12 +48,13 @@ function App() {
 
 
   async function getAllMembers() {
-    let response = await axios.get('http://127.0.0.1:8000/api/members/view_all_members/');
+    let response = await axios.get(`http://127.0.0.1:8000/api/members/view_all_members/`);
     setMembers(response.data)
   };
 
-    async function updateProfile() {
-    let response = await axios.put('http://127.0.0.1:8000/api/members/update_profile/${alterProfile.id}/');
+    async function updateMember(editedMember) {
+      console.log(editedMember)
+    let response = await axios.put(`http://127.0.0.1:8000/api/members/update_profile/${editedMember.id}/`, editedMember);
     if(response.data === 201) {
       // await viewAllEvents(); 
     }
@@ -155,7 +157,7 @@ function App() {
 
   return (
     <div>
-        <AllMembers members={members}/>
+        <AllMembers members={members} updateMember={updateMember}/>
   
         {/* <Router>
           <Routes>
