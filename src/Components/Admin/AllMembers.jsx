@@ -2,7 +2,7 @@ import React, { useState, Fragment } from 'react';
 import AllMembersRoR from './AllMembersRoR';
 import AllMembersEditRow from './AllMembersEditRow';
 
-const AllMembers = (props, updateMember) => {
+const AllMembers = (props) => {
     console.log(props)
     const [id, setid] = useState('');
     const [firstName, setFirstName] = useState('');
@@ -94,7 +94,7 @@ const AllMembers = (props, updateMember) => {
         event.preventDefault();
         console.log("handleEditFormSubmit: here it is   " + editMemberId)
         const editedMember = {
-            id: editMemberId, 
+            id: editMemberId,
             first_name: editFormData.first_name,
             middle_name: editFormData.middle_name,
             last_name: editFormData.last_name,
@@ -116,7 +116,7 @@ const AllMembers = (props, updateMember) => {
         setMembers(newMembers); 
         setEditMemberId(null);
         console.log(editedMember)
-        updateMember(editedMember);
+        props.updateMember(editedMember);
     }; 
     
     const handleEditClick = (event, member) => {
@@ -195,21 +195,21 @@ const AllMembers = (props, updateMember) => {
                     return (
                     <form>
                         <input 
-                        name='firstName'
+                        name='first_name'
                         type='text'
                         required='required'
                         placeholder='Enter first name...'
                         onChange={handleAddFormChange} />
 
                         <input
-                        name='middleName'
+                        name='middle_name'
                         type='text'
                         required='required'
                         placeholder='Enter middle name...'
                         onChange={handleAddFormChange} />
 
                         <input
-                        name='lastName'
+                        name='last_name'
                         type='text' 
                         required='required'
                         placeholder='Enter last name...'               
@@ -244,14 +244,14 @@ const AllMembers = (props, updateMember) => {
                         onChange={handleAddFormChange} />
                     
                         <input
-                        name='zipCode' 
+                        name='zip_code' 
                         type='text' 
                         required='required'
                         placeholder='Enter zip code...'
                         onChange={handleAddFormChange} />
                   
                         <input 
-                        name='isActive' 
+                        name='is_active' 
                         type='integer' 
                         required='required'
                         placeholder='Is member active? '

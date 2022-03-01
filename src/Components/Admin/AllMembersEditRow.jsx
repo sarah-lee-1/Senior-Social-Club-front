@@ -5,7 +5,7 @@ const AllMembersEditRow = ({ editFormData, handleEditFormChange, handleCancelCli
         <tr>
             <td>
             <input 
-                name='firstName'
+                name='first_name'
                 type='text'
                 required='required'
                 placeholder='Enter first name...'
@@ -14,7 +14,7 @@ const AllMembersEditRow = ({ editFormData, handleEditFormChange, handleCancelCli
             </td>
             <td>
                 <input
-                name='middleName'
+                name='middle_name'
                 type='text'
                 required='required'
                 placeholder='Enter middle name...'
@@ -23,7 +23,7 @@ const AllMembersEditRow = ({ editFormData, handleEditFormChange, handleCancelCli
             </td> 
             <td>
                 <input
-                name='lastName'
+                name='last_name'
                 type='text' 
                 required='required'
                 placeholder='Enter last name...'
@@ -68,7 +68,7 @@ const AllMembersEditRow = ({ editFormData, handleEditFormChange, handleCancelCli
             </td>
             <td>
                 <input
-                name='zipCode' 
+                name='zip_code' 
                 type='text' 
                 required='required'
                 placeholder='Enter zip code...'
@@ -77,7 +77,7 @@ const AllMembersEditRow = ({ editFormData, handleEditFormChange, handleCancelCli
             </td> 
             <td>
                 <input 
-                name='isActive' 
+                name='is_active' 
                 type='integer' 
                 required='required'
                 placeholder='Is member active? '
