@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AllEventsRoR = ({ event, handleEditClick, handleEditDeleteClick }) => {
+const AllEventsRoR = ({ event, handleEditClick, handleDeleteClick }) => {
     return (
         <tr key={event.id}>
             <td>{event.title}</td>
@@ -16,7 +16,7 @@ const AllEventsRoR = ({ event, handleEditClick, handleEditDeleteClick }) => {
             <td>
                 <button
                 type="button"
-                onClick={(event) => handleEditClick(event, member)}
+                onClick={(edit) => handleEditClick(edit, event)}
                 >Edit</button>
             </td>
             <td>

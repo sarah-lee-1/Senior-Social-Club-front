@@ -1,6 +1,6 @@
-import { UseState, Fragment } from "react";
+import { useState, Fragment } from "react";
 import AllEventsRoR from './AllEventsRoR';
-import AllEventsEditRow from './AllEventsEditRow;'
+import AllEventsEditRow from './AllEventsEditRow';
 
 const AllEvents = (props) => {
     const [id, setid] = useState('');
@@ -14,6 +14,7 @@ const AllEvents = (props) => {
     const [city, setCity] = useState('');
     const [state, setState] = useState('');
     const [zipCode, setZipCode] = useState(''); 
+    const [events, setEvents] =useState('');
 
 
     const [addFormData, setAddFormData] = useState({
@@ -74,7 +75,7 @@ const AllEvents = (props) => {
 
         const newEvent = {
         id: id,
-        title: title,
+        title: addFormData.title,
         description: addFormData.description,
         month: addFormData.month,
         day: addFormData.day,
@@ -91,10 +92,10 @@ const AllEvents = (props) => {
 
     const handleEditFormSubmit = (event) => {
         event.preventDefault();
-        console.log("here it is  " + editEventId)
+        console.log("handleEditFormatSubmit: here it is  " + editEventId)
         const editedEvent = {
             id: editEventId,
-            title: title,
+            title: editFormData.title,
             description: editFormData.description,
             month: editFormData.month,
             day: editFormData.day,
@@ -109,15 +110,15 @@ const AllEvents = (props) => {
 
         const index = props.events.findIndex((event) => 
         event.id === editEventId);
-        newEvents[index] = editEvent;
+        newEvents[index] = editedEvent;
 
         setEvents(newEvents);
         setEditEventId(null);
         props.updateEvent(editedEvent);
     };
 
-    const handleEditClick = (event, event) =>{
-        event.preventDefault();
+    const handleEditClick = (edit, event) =>{
+        edit.preventDefault();
         setEditEventId(event.id)
 
         const formValues = {
@@ -152,17 +153,16 @@ const AllEvents = (props) => {
         <form onSubmit={handleEditFormSubmit}>
             <table>
                 <thead>
-                    <th>Id</th>
-                    <th>Title</th>
-                    <th>Description</th>
-                    <th>Month</th>
-                    <th>Day</th>
-                    <th>Year</th>
-                    <th>Time</th>
-                    <th>Street Address</th>
-                    <th>City</th>
-                    <th>State</th>
-                    <th>Zip Code</th>
+                    <tr>Title</tr>
+                    <tr>Description</tr>
+                    <tr>Month</tr>
+                    <tr>Day</tr>
+                    <tr>Year</tr>
+                    <tr>Time</tr>
+                    <tr>Street Address</tr>
+                    <tr>City</tr>
+                    <tr>State</tr>
+                    <tr>Zip Code</tr>
                 </thead>
 
                 {props.events.map((event) => (
@@ -220,7 +220,7 @@ const AllEvents = (props) => {
                 />
                 <input
                 name='time' 
-                type='text'
+                type='time'
                 required='required'
                 placeholder='Enter time...'
                 onChange={handleAddFormChange}
@@ -252,6 +252,7 @@ const AllEvents = (props) => {
                 required='required'
                 placeholder='Enter zip code...'
                 onChange={handleAddFormChange} />
+                
                 <button type="submit">Add</button>
 
             </form>

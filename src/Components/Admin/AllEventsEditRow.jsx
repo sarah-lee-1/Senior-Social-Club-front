@@ -9,7 +9,7 @@ const AllEventsEditRow = ({ editFormData, handleEditFormChange, handleCancelClic
                 type='text' 
                 required='required'
                 placeholder='Enter title'
-                value={editFormData.state}
+                value={editFormData.title}
                 onChange={handleEditFormChange} />
             </td>
             <td>
@@ -18,7 +18,7 @@ const AllEventsEditRow = ({ editFormData, handleEditFormChange, handleCancelClic
                 type='text' 
                 required='required'
                 placeholder='Enter description'
-                value={editFormData.state}
+                value={editFormData.description}
                 onChange={handleEditFormChange} />
             </td>
             <td>
@@ -27,7 +27,7 @@ const AllEventsEditRow = ({ editFormData, handleEditFormChange, handleCancelClic
                 type='text' 
                 required='required'
                 placeholder='Enter month'
-                value={editFormData.state}
+                value={editFormData.month}
                 onChange={handleEditFormChange} />
             </td>
             <td>
@@ -36,7 +36,7 @@ const AllEventsEditRow = ({ editFormData, handleEditFormChange, handleCancelClic
                 type='text' 
                 required='required'
                 placeholder='Enter day'
-                value={editFormData.state}
+                value={editFormData.day}
                 onChange={handleEditFormChange} />
             </td>
             <td>
@@ -45,16 +45,16 @@ const AllEventsEditRow = ({ editFormData, handleEditFormChange, handleCancelClic
                 type='text' 
                 required='required'
                 placeholder='Enter year'
-                value={editFormData.state}
+                value={editFormData.year}
                 onChange={handleEditFormChange} />
             </td>
             <td>
                 <input  
                 name='time'         
-                type='time' 
+                type='text' 
                 required='required'
                 placeholder='Enter start time...'
-                value={editFormData.email}
+                value={editFormData.time}
                 onChange={handleEditFormChange} />
             </td>
             <td>
@@ -63,7 +63,7 @@ const AllEventsEditRow = ({ editFormData, handleEditFormChange, handleCancelClic
                 type='text'
                 required='required'
                 placeholder='Enter address...'
-                value={editFormData.address}
+                value={editFormData.street}
                 onChange={handleEditFormChange} />
             </td>
             <td>

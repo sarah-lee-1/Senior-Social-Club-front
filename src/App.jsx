@@ -8,7 +8,7 @@ import CreateMemberRequest from './Components/Member/CreateMemberReq';
 import ViewSingleProfile from './Components/Member/ViewSingleProfile';
 // import ReviseProfile from './Components/Member/ReviseProfileOrif';
 import CreateNewEvent from './Components/Admin/CreateNewEvent';
-import AllEvents from './Components/Member/AllEvents';
+import AllEvents from './Components/Admin/AllEvents';
 import EditAM from './Components/Admin/EditAM';
 
 // import NavBar from './Components/Navbar/Navbar';
@@ -28,49 +28,58 @@ function App() {
   const [members, setMembers] = useState([]); 
 
   useEffect(() => {
-    getAllMembers();
-    updateMember(); 
+    // getAllMembers();
+    // updateMember(); 
     allEvents();
     updateEvent();
-
+    deleteEvent();
     // createMember();
     // createRequest(); 
     // viewSingleProfile(); 
     //  createAnEvent();
     // viewSingleEvent();
 
-    // deleteEvent(); 
+     
     // createRsvp();
     // viewEventMap(); 
        
   }, [])
 
 
-  async function getAllMembers() {
-    let response = await axios.get(`http://127.0.0.1:8000/api/members/view_all_members/`);
-    setMembers(response.data)
-  };
+  // async function getAllMembers() {
+  //   let response = await axios.get(`http://127.0.0.1:8000/api/members/view_all_members/`);
+  //   setMembers(response.data)
+  // };
 
-    async function updateMember(editedMember) {
-      console.log(editedMember)
-    let response = await axios.put(`http://127.0.0.1:8000/api/members/update_profile/${editedMember.id}/`, editedMember);
-    if(response.data === 201) {
-      // await viewAllEvents(); 
-    }
-  };
+  //   async function updateMember(editedMember) {
+  //     console.log(editedMember)
+  //   let response = await axios.put(`http://127.0.0.1:8000/api/members/update_profile/${editedMember.id}/`, editedMember);
+  //   if(response.data === 201) {
+  //     // await viewAllEvents(); 
+  //   }
+  // };
 
     async function allEvents() {
-    let response = await axios.get('http://127.0.0.1:8000/api/events/view_all_events/'); 
+    let response = await axios.get(`http://127.0.0.1:8000/api/events/view_all_events/`); 
     setEvents(response.data)
   }; 
 
 
-    async function updateEvent(chgEvent) {
-    let response = await axios.put('http://127.0.0.1:8000/api/events/update_event/${id}'), chgEvent;
+    async function updateEvent(editedEvent) {
+    let response = await axios.put(`http://127.0.0.1:8000/api/events/update_event/${editedEvent.id}/`, editedEvent);
     if(response.data === 201) {
-      await viewAllEvents();
+      // await viewAllEvents();
     }
   };
+
+  async function deleteEvent(setEvents) {
+    // console.log("App.js ID: ", id)
+    let response = await axios.delete(`http://127.0.0.1:8000/api/events/delete_event/${setEvents.id}/`, setEvents);
+    if(response.status === 204) {
+      console.log("Event Deleted")
+      // await viewAllEvents();
+    }
+  }; 
 
   // async function createMember(NewMember) {
   //   let response = await axios.post('http://127.0.0.1:8000/api/members/create_member/', NewMember);
@@ -125,15 +134,6 @@ function App() {
   
 
 
-  // 
-//   async function deleteEvent(id) {
-//     console.log("App.js ID: ", id)
-//     let response = await axios.delete('http://127.0.0.1:8000/api/events/delete_event/${id}/');
-//     if(response.status === 204) {
-//       console.log("Event Deleted")
-//       await viewAllEvents();
-//     }
-//   }; 
 
 
   
