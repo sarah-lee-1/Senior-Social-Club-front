@@ -182,13 +182,83 @@ const AllEvents = (props) => {
             </table>
         </form>
         <h3>Add an Event</h3>
+            <form onSubmit={handleAddFormSubmit}>
+                <input
+                name='title' 
+                type='text'
+                required='required'
+                placeholder='Enter title...'
+                onChange={handleAddFormChange}
+                />
+                <input
+                name='description' 
+                type='text'
+                required='required'
+                placeholder='Enter description...'
+                onChange={handleAddFormChange}
+                />
+                <input
+                name='month' 
+                type='text'
+                required='required'
+                placeholder='Enter month...'
+                onChange={handleAddFormChange}
+                />
+                <input
+                name='day' 
+                type='text'
+                required='required'
+                placeholder='Enter day...'
+                onChange={handleAddFormChange}
+                />
+                <input
+                name='year' 
+                type='text'
+                required='required'
+                placeholder='Enter year...'
+                onChange={handleAddFormChange}
+                />
+                <input
+                name='time' 
+                type='text'
+                required='required'
+                placeholder='Enter time...'
+                onChange={handleAddFormChange}
+                />
+                <input
+                name='street' 
+                type='text'
+                required='required'
+                placeholder='Enter address...'
+                onChange={handleAddFormChange} />
+
+                <input  
+                name='city'
+                type='text'
+                required='required'
+                placeholder='Enter city...'
+                onChange={handleAddFormChange} />
+
+                <input
+                name='state'
+                type='text' 
+                required='required'
+                placeholder='Enter state'
+                onChange={handleAddFormChange} />
+            
+                <input
+                name='zip_code' 
+                type='text' 
+                required='required'
+                placeholder='Enter zip code...'
+                onChange={handleAddFormChange} />
+                <button type="submit">Add</button>
+
+            </form>
+
 
        </div> 
-    )
-
-
-
-
+    );
 
 
 }

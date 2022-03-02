@@ -179,9 +179,8 @@ const AllMembers = (props) => {
                         ( <AllMembersRoR
                             member={member}
                             handleEditClick={handleEditClick}
-                            handleDeleteClick={handleDeleteClick} 
-                        />
-                        )}
+                            handleDeleteClick={handleDeleteClick} />)
+                        }
                         </Fragment>
                     ))}
 

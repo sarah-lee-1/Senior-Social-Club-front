@@ -30,16 +30,15 @@ function App() {
   useEffect(() => {
     getAllMembers();
     updateMember(); 
-    
+    allEvents();
+    updateEvent();
+
     // createMember();
-   
     // createRequest(); 
     // viewSingleProfile(); 
     //  createAnEvent();
-    //  allEvents();
-
     // viewSingleEvent();
-    // updateEvent();
+
     // deleteEvent(); 
     // createRsvp();
     // viewEventMap(); 
@@ -60,6 +59,18 @@ function App() {
     }
   };
 
+    async function allEvents() {
+    let response = await axios.get('http://127.0.0.1:8000/api/events/view_all_events/'); 
+    setEvents(response.data)
+  }; 
+
+
+    async function updateEvent(chgEvent) {
+    let response = await axios.put('http://127.0.0.1:8000/api/events/update_event/${id}'), chgEvent;
+    if(response.data === 201) {
+      await viewAllEvents();
+    }
+  };
 
   // async function createMember(NewMember) {
   //   let response = await axios.post('http://127.0.0.1:8000/api/members/create_member/', NewMember);
@@ -68,7 +79,6 @@ function App() {
   //     // await viewAllEvents();
   //   }
   // };
-
 
 
 //  async function createRequest(NewRequest) {
@@ -87,12 +97,6 @@ function App() {
   //     // await viewAllEvents(); 
   //   }
   // };
-
-
-  // async function allEvents() {
-  //   let response = await axios.get('http://127.0.0.1:8000/api/events/view_all_events/'); 
-  //   setEvents(response.data)
-  // }; 
 
 
   // async function viewSingleProfile(id) {
@@ -119,12 +123,7 @@ function App() {
 
 
   
-//   async function updateEvent(chgEvent) {
-//     let response = await axios.put('http://127.0.0.1:8000/api/events/update_event/${id}'), chgEvent;
-//     if(response.data === 201) {
-//       await viewAllEvents();
-//     }
-//   };
+
 
   // 
 //   async function deleteEvent(id) {
@@ -157,7 +156,8 @@ function App() {
 
   return (
     <div>
-        <AllMembers members={members} updateMember={updateMember}/>
+      <AllEvents events={events} updateEvent={updateEvent}/>
+      {/* <AllMembers members={members} updateMember={updateMember}/> */}
   
         {/* <Router>
           <Routes>
@@ -168,7 +168,6 @@ function App() {
         </Router> */}
 
         
-
         {/* <Route path='/update_members/' element={<AllMembers members={members}/>}/>  */}
       {/* // <Route AllMembers parentEntries={members}/>   */}
         {/* <ViewSingleProfile mode={'Edit'}/>
