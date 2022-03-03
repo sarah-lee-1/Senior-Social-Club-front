@@ -14,7 +14,9 @@ const AllEvents = (props) => {
     const [city, setCity] = useState('');
     const [state, setState] = useState('');
     const [zipCode, setZipCode] = useState(''); 
-    const [events, setEvents] =useState('');
+    const [events, setEvents] = useState('');
+
+    const [todods, setTodos] = useState(''); 
 
 
     const [addFormData, setAddFormData] = useState({
@@ -92,7 +94,7 @@ const AllEvents = (props) => {
 
     const handleEditFormSubmit = (event) => {
         event.preventDefault();
-        console.log("handleEditFormatSubmit: here it is  " + editEventId)
+        
         const editedEvent = {
             id: editEventId,
             title: editFormData.title,
@@ -140,12 +142,25 @@ const AllEvents = (props) => {
         setEditEventId(null);
     };
 
+    // const handleDeleteClick = (edit, event) => {
+    //     edit.preventDefault();
+    //     setDeleteEvent(event.id)
+
+    //     const removeEvent = props.events.filter((event) {
+    //     return event.id !== id;
+            
+    //         setDeleteEvent(removeEvent);
+    //     });
+    // };
+
     const handleDeleteClick = (eventId) => {
         const newEvents = [...props.events];
         const index =props.events.findIndex((event)=> event.id === eventId);
-        newEvents.splice(index, 1);
+        newEvents.delete(index, 1);
         setEvents(newEvents);
+        props.deleteEvent(newEvents);
     };
+
 
     return (
        <div className="container-1">

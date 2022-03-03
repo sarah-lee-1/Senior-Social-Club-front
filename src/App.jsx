@@ -28,12 +28,12 @@ function App() {
   const [members, setMembers] = useState([]); 
 
   useEffect(() => {
-    // getAllMembers();
-    // updateMember(); 
+    getAllMembers();
+    updateMember(); 
     allEvents();
     updateEvent();
     deleteEvent();
-    // createMember();
+    createMember();
     // createRequest(); 
     // viewSingleProfile(); 
     //  createAnEvent();
@@ -46,18 +46,18 @@ function App() {
   }, [])
 
 
-  // async function getAllMembers() {
-  //   let response = await axios.get(`http://127.0.0.1:8000/api/members/view_all_members/`);
-  //   setMembers(response.data)
-  // };
+  async function getAllMembers() {
+    let response = await axios.get(`http://127.0.0.1:8000/api/members/view_all_members/`);
+    setMembers(response.data)
+  };
 
-  //   async function updateMember(editedMember) {
-  //     console.log(editedMember)
-  //   let response = await axios.put(`http://127.0.0.1:8000/api/members/update_profile/${editedMember.id}/`, editedMember);
-  //   if(response.data === 201) {
-  //     // await viewAllEvents(); 
-  //   }
-  // };
+    async function updateMember(editedMember) {
+      console.log(editedMember)
+    let response = await axios.put(`http://127.0.0.1:8000/api/members/update_profile/${editedMember.id}/`, editedMember);
+    if(response.data === 201) {
+      // await viewAllEvents(); 
+    }
+  };
 
     async function allEvents() {
     let response = await axios.get(`http://127.0.0.1:8000/api/events/view_all_events/`); 
@@ -72,22 +72,22 @@ function App() {
     }
   };
 
-  async function deleteEvent(setEvents) {
+  async function deleteEvent(newEvents) {
     // console.log("App.js ID: ", id)
-    let response = await axios.delete(`http://127.0.0.1:8000/api/events/delete_event/${setEvents.id}/`, setEvents);
+    let response = await axios.delete(`http://127.0.0.1:8000/api/events/delete_event/${newEvents.id}/`, newEvents);
     if(response.status === 204) {
       console.log("Event Deleted")
       // await viewAllEvents();
     }
   }; 
 
-  // async function createMember(NewMember) {
-  //   let response = await axios.post('http://127.0.0.1:8000/api/members/create_member/', NewMember);
-  //   if(response.status ===201) {
-  //     console.log("New Member Created!")
-  //     // await viewAllEvents();
-  //   }
-  // };
+  async function createMember(setMember) {
+    let response = await axios.post('http://127.0.0.1:8000/api/members/create_member/', setMember);
+    if(response.status ===201) {
+      console.log("New Member Created!")
+      // await viewAllEvents();
+    }
+  };
 
 
 //  async function createRequest(NewRequest) {
@@ -156,8 +156,8 @@ function App() {
 
   return (
     <div>
-      <AllEvents events={events} updateEvent={updateEvent}/>
-      {/* <AllMembers members={members} updateMember={updateMember}/> */}
+      <AllEvents events={events} updateEvent={updateEvent} deleteEvent={deleteEvent}/>
+      <AllMembers members={members} updateMember={updateMember} createMember={createMember} /> 
   
         {/* <Router>
           <Routes>
