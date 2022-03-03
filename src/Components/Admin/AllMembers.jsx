@@ -74,7 +74,7 @@ const AllMembers = (props) => {
         event.preventDefault();
 
         const newMember = {
-            id: id, 
+            id: editMemberId, 
             first_name: addFormData.first_name,
             middle_name: addFormData.middle_name,
             last_name: addFormData.last_name,
@@ -168,7 +168,7 @@ const AllMembers = (props) => {
                     <tr>Balance</tr>
                 </thead>
 
-                {/* <tbody> */}
+              
                     {props.members.map((member) => (
                         <Fragment>
                             {editMemberId === member.id ?
@@ -183,16 +183,11 @@ const AllMembers = (props) => {
                         }
                         </Fragment>
                     ))}
-
-                {/* </tbody> */}
             </table>
             </form>
 
             <h3>Add a Member</h3>
             <form onSubmit={handleAddFormSubmit}>
-                {props.members.map((member, index) => {
-                    return (
-                    <form>
                         <input 
                         name='first_name'
                         type='text'
@@ -264,9 +259,7 @@ const AllMembers = (props) => {
                         onChange={handleAddFormChange} />
 
                         <button type='submit'>Add</button>
-                    </form> 
-                    );
-                })}
+
             </form>
         </div>
     );
