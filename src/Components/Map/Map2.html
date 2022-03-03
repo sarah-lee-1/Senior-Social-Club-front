@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=devicec-width",
+        initial="scale=1.0"> 
+        <meta http-equip="X-UA-Compatible" content="ie=edge">
+        <title>Event Google Map</title>
+        <style>
+            #map{
+                height:400px;
+                width:100%;
+            }
+        </style>
+    </head>
+    <body>
+        <h3>Event Google Map</h3>
+        <div id="map"></div>
+        <script>
+            function initMap(){ 
+                var options = {
+                    zoom:12,
+                    center: {lat:43.0389, lng:-87.9065}
+                }
+
+                addMarker({lat:43.077690, lng:-88.067322,
+                content:'<h1>Post 449</h1>'}); 
+                addMarker({lat:42.951480, lng:-87.999170,
+                content:'<h1>Edge Pub & Grill</h1>'}); 
+                addMarker({lat:43.035280, lng:-88.107480,
+                content:'<h1>Flembings Steak House</h1>'}); 
+
+                function addMarker(coord){
+                    var map = new google.maps.Map(document.getElementById('map'), options);
+                    var marker = new google.maps.Marker({
+                    
+                    position:coord,
+                    map:map
+                    });
+                }
+
+            }
+        </script>
+
+        <script async defer
+        src="https://maps.googleapis.com/maps/api/
+        js?key=AIzaSyA2Sx-Xy3xjvPlwQenS_IAW0eA6Iv3Zsu0&callback=initMap"
+        ></script>
+    </body>
+</html>
