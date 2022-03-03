@@ -145,18 +145,16 @@ const AllEvents = (props) => {
     // const handleDeleteClick = (edit, event) => {
     //     edit.preventDefault();
     //     setDeleteEvent(event.id)
-
     //     const removeEvent = props.events.filter((event) {
     //     return event.id !== id;
-            
     //         setDeleteEvent(removeEvent);
     //     });
     // };
 
-    const handleDeleteClick = (eventId) => {
+    const handleDeleteClick = (event) => {
         const newEvents = [...props.events];
         const index =props.events.findIndex((event)=> event.id === eventId);
-        newEvents.delete(index, 1);
+        newEvents.delete(eventId);
         setEvents(newEvents);
         props.deleteEvent(newEvents);
     };
