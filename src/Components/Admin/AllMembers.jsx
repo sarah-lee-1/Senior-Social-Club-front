@@ -3,7 +3,6 @@ import AllMembersRoR from './AllMembersRoR';
 import AllMembersEditRow from './AllMembersEditRow';
 
 const AllMembers = (props) => {
-    console.log(props)
     const [id, setid] = useState('');
     const [firstName, setFirstName] = useState('');
     const [middleName, setMiddleName] = useState('');
@@ -18,7 +17,6 @@ const AllMembers = (props) => {
     const [members, setMembers] = useState([]); 
 
     const[addFormData, setAddFormData] = useState({
-        id: id,
         first_name: firstName,
         middle_name: middleName,
         last_name: lastName,
@@ -32,7 +30,6 @@ const AllMembers = (props) => {
     }, []);
 
     const [editFormData, setEditFormData] = useState({
-        id: id,
         first_name: firstName,
         middle_name: middleName,
         last_name: lastName,
@@ -88,6 +85,7 @@ const AllMembers = (props) => {
         }; 
         const newMembers = [...props.members, newMember];
         setMembers(newMembers);
+        props.createMember(newMember)
     };
 
     const handleEditFormSubmit = (event) => {

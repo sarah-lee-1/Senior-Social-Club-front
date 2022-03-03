@@ -82,8 +82,8 @@ function App() {
     }
   }; 
 
-  async function createMember(setMember) {
-    let response = await axios.post('http://127.0.0.1:8000/api/members/create_member/', setMember);
+  async function createMember(newMember) {
+    let response = await axios.post('http://127.0.0.1:8000/api/members/create_member/', newMember);
     if(response.status ===201) {
       console.log("New Member Created!")
       // await viewAllEvents();
@@ -165,10 +165,11 @@ function App() {
   return (
     <div>
       {/* <MapComponent></MapComponent> */}
-      <CreateNewEvent createAnEvent= {createAnEvent} />
-      <AllEvents createAnEvent= {createAnEvent}  events={events} updateEvent={updateEvent} deleteEvent={deleteEvent}/>
+
+      <AllEvents  events={events} createAnEvent= {createAnEvent} updateEvent={updateEvent} deleteEvent={deleteEvent}/>
       <AllMembers members={members} updateMember={updateMember} createMember={createMember} /> 
 
+            {/* <CreateNewEvent createAnEvent= {createAnEvent} /> */}
         {/* <Router>
           <Routes>
     
