@@ -20,7 +20,6 @@ const AllEvents = (props) => {
 
 
     const [addFormData, setAddFormData] = useState({
-        id: id,
         title: title,
         description: description,
         month: month,
@@ -54,8 +53,9 @@ const AllEvents = (props) => {
 
         const fieldName = event.target.getAttribute('name');
         const fieldValue = event.target.value;
-
+     
         const newFormData = {...addFormData};
+    
         newFormData[fieldName] = fieldValue;
 
         setAddFormData(newFormData);
@@ -76,7 +76,6 @@ const AllEvents = (props) => {
         event.preventDefault();
 
         const newEvent = {
-        id: id,
         title: addFormData.title,
         description: addFormData.description,
         month: addFormData.month,
@@ -90,6 +89,7 @@ const AllEvents = (props) => {
         };
         const newEvents = [props.events, newEvent];
         setEvents(newEvents);
+        props.createAnEvent(newEvent)
     };
 
     const handleEditFormSubmit = (event) => {
@@ -142,23 +142,9 @@ const AllEvents = (props) => {
         setEditEventId(null);
     };
 
-    // const handleDeleteClick = (edit, event) => {
-    //     edit.preventDefault();
-    //     setDeleteEvent(event.id)
-    //     const removeEvent = props.events.filter((event) {
-    //     return event.id !== id;
-    //         setDeleteEvent(removeEvent);
-    //     });
-    // };
-
-    const handleDeleteClick = (event) => {
-        const newEvents = [...props.events];
-        const index =props.events.findIndex((event)=> event.id === eventId);
-        newEvents.delete(eventId);
-        setEvents(newEvents);
-        props.deleteEvent(newEvents);
+    const handleDeleteClick = (memberId) => {
+        props.deleteEvent(memberId);
     };
-
 
     return (
        <div className="container-1">
@@ -188,7 +174,8 @@ const AllEvents = (props) => {
                     ( <AllEventsRoR
                         event={event}
                         handleEditClick={handleEditClick}
-                        handleDeleteClick={handleDeleteClick} />)
+                        handleDeleteClick={handleDeleteClick} />
+                        )
                     }  
                     </Fragment>
                 ))}

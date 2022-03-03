@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 const CreateNewEvent = (props) => {
 
@@ -13,7 +14,7 @@ const CreateNewEvent = (props) => {
     const [state, setState] = useState('');
     const [zipCode, setZipCode] = useState('');
 
-    function handleSubmit(event) {
+    async function handleSubmit(event) {
         event.preventDefault();
         let newEvent = {
             title: title,
@@ -28,6 +29,13 @@ const CreateNewEvent = (props) => {
             zip_code: zipCode,
         }
         console.log(newEvent);
+          
+    let response = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${newEvent.street},${newEvent.city},${newEvent.state}&key=AIzaSyCu8MBgrDWN_kh5WIL1sTmura5i1v-mdOE`)
+    console.log(response.data)
+    newEvent.lat = response.data.results[0].geometry.location.lat
+    newEvent.lng = response.data.results[0].geometry.location.lng
+
+  
         props.createAnEvent(newEvent);
     }
 

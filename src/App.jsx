@@ -19,6 +19,7 @@ import {
   Route,
   Link
 } from 'react-router-dom'
+import MapComponent from './Components/Map/MapComponent';
 
 
 function App() {
@@ -72,9 +73,9 @@ function App() {
     }
   };
 
-  async function deleteEvent(newEvents) {
+  async function deleteEvent(id) {
     // console.log("App.js ID: ", id)
-    let response = await axios.delete(`http://127.0.0.1:8000/api/events/delete_event/${newEvents.id}/`, newEvents);
+    let response = await axios.delete(`http://127.0.0.1:8000/api/events/delete_event/${id}/`);
     if(response.status === 204) {
       console.log("Event Deleted")
       // await viewAllEvents();
@@ -89,6 +90,11 @@ function App() {
     }
   };
 
+// async function getMap() {
+//   let response = await axios.get(`https://maps.googleapis.com/maps/api/
+//     js?key=AIzaSyA2Sx-Xy3xjvPlwQenS_IAW0eA6Iv3Zsu0&callback=initMap`)
+//   setMapData(response.data.items)
+// }
 
 //  async function createRequest(NewRequest) {
 //    let response = await axios.post('http://127.0.0.1:8000/api/members/create_membership_request/', NewRequest);
@@ -99,13 +105,17 @@ function App() {
 //  };
 
 
-  // async function createAnEvent(makeNewEvent) {
-  //   let response = await axios.post('http://127.0.0.1:8000/api/events/create_event/', makeNewEvent);
-  //   if(response.status === 201) {
-  //     console.log("New Event Created")
-  //     // await viewAllEvents(); 
-  //   }
-  // };
+  async function createAnEvent(newEvent) {
+    let response = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${newEvent.street},${newEvent.city},${newEvent.state}&key=AIzaSyCu8MBgrDWN_kh5WIL1sTmura5i1v-mdOE`)
+    console.log(response.data)
+    newEvent.lat = response.data.results[0].geometry.location.lat
+    newEvent.lng = response.data.results[0].geometry.location.lng
+    let response2 = await axios.post('http://127.0.0.1:8000/api/events/create_event/', newEvent);
+    if(response2.status === 201) {
+      console.log("New Event Created")
+      // await viewAllEvents(); 
+    }
+  };
 
 
   // async function viewSingleProfile(id) {
@@ -127,8 +137,6 @@ function App() {
 //       await viewAllEvents();
 //     }
 //   }; 
-
-  
 
 
   
@@ -156,9 +164,11 @@ function App() {
 
   return (
     <div>
-      <AllEvents events={events} updateEvent={updateEvent} deleteEvent={deleteEvent}/>
+      {/* <MapComponent></MapComponent> */}
+      <CreateNewEvent createAnEvent= {createAnEvent} />
+      <AllEvents createAnEvent= {createAnEvent}  events={events} updateEvent={updateEvent} deleteEvent={deleteEvent}/>
       <AllMembers members={members} updateMember={updateMember} createMember={createMember} /> 
-  
+
         {/* <Router>
           <Routes>
     
