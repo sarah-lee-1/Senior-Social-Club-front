@@ -1,13 +1,21 @@
+import { Link } from 'react-router-dom';
+
 const NavBar = (props) => {
-<div>
   <nav id="navbar">
-    <div class="container">
+    <ul>
+      <Link to='/''>
+      <li>Home</li>
+      <div class="container">
+
+      
       <a href="#home">Home</a>
       <a href="#Login">Login</a>
       <a href="#contact">Contact</a>
     </div>
+    </ul>
+
   </nav>
-</div>
+
 
 }
 

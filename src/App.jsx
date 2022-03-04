@@ -1,18 +1,14 @@
-// import { Navigate } from 'react-router-dom'
-// import ReactDOM from 'react-dom';
+import { Navigate } from 'react-router-dom'
+import ReactDOM from 'react-dom';
 import axios from 'axios'; 
 import React, { useState, useEffect } from 'react';
 import AllMembers from './Components/Admin/AllMembers'; 
 import CreateNewMember from './Components/Admin/CreateNewMember';
 import CreateMemberRequest from './Components/Member/CreateMemberReq';
 import ViewSingleProfile from './Components/Member/ViewSingleProfile';
-// import ReviseProfile from './Components/Member/ReviseProfileOrif';
 import CreateNewEvent from './Components/Admin/CreateNewEvent';
 import AllEvents from './Components/Admin/AllEvents';
-import EditAM from './Components/Admin/EditAM';
-
-// import NavBar from './Components/Navbar/Navbar';
-// import ReviseProfile from './Components/Member/ReviseProfile';
+import EditAM from './Components/Admin/EditAM'; 
 import {
   BrowserRouter as Router,
   Routes,
@@ -20,6 +16,9 @@ import {
   Link
 } from 'react-router-dom'
 import MapComponent from './Components/Map/MapComponent';
+
+// import NavBar from './Components/Navbar/Navbar';
+// import ReviseProfile from './Components/Member/ReviseProfile';
 
 
 function App() {
@@ -31,16 +30,17 @@ function App() {
   useEffect(() => {
     getAllMembers();
     updateMember(); 
+    createMember();
     allEvents();
     updateEvent();
+    createAnEvent();
     deleteEvent();
-    createMember();
+   
+
     // createRequest(); 
     // viewSingleProfile(); 
-    //  createAnEvent();
-    // viewSingleEvent();
 
-     
+    // viewSingleEvent();
     // createRsvp();
     // viewEventMap(); 
        
@@ -60,6 +60,14 @@ function App() {
     }
   };
 
+  async function createMember(newMember) {
+    let response = await axios.post('http://127.0.0.1:8000/api/members/create_member/', newMember);
+    if(response.status ===201) {
+      console.log("New Member Created!")
+      // await viewAllEvents();
+    }
+  };
+
     async function allEvents() {
     let response = await axios.get(`http://127.0.0.1:8000/api/events/view_all_events/`); 
     setEvents(response.data)
@@ -73,6 +81,19 @@ function App() {
     }
   };
 
+  
+  async function createAnEvent(newEvent) {
+    let response = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${newEvent.street},${newEvent.city},${newEvent.state}&key=AIzaSyCu8MBgrDWN_kh5WIL1sTmura5i1v-mdOE`)
+    console.log(response.data)
+    newEvent.lat = response.data.results[0].geometry.location.lat
+    newEvent.lng = response.data.results[0].geometry.location.lng
+    let response2 = await axios.post('http://127.0.0.1:8000/api/events/create_event/', newEvent);
+    if(response2.status === 201) {
+      console.log("New Event Created")
+      // await viewAllEvents(); 
+    }
+  };
+
   async function deleteEvent(id) {
     // console.log("App.js ID: ", id)
     let response = await axios.delete(`http://127.0.0.1:8000/api/events/delete_event/${id}/`);
@@ -82,13 +103,7 @@ function App() {
     }
   }; 
 
-  async function createMember(newMember) {
-    let response = await axios.post('http://127.0.0.1:8000/api/members/create_member/', newMember);
-    if(response.status ===201) {
-      console.log("New Member Created!")
-      // await viewAllEvents();
-    }
-  };
+
 
 // async function getMap() {
 //   let response = await axios.get(`https://maps.googleapis.com/maps/api/
@@ -105,19 +120,6 @@ function App() {
 //  };
 
 
-  async function createAnEvent(newEvent) {
-    let response = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${newEvent.street},${newEvent.city},${newEvent.state}&key=AIzaSyCu8MBgrDWN_kh5WIL1sTmura5i1v-mdOE`)
-    console.log(response.data)
-    newEvent.lat = response.data.results[0].geometry.location.lat
-    newEvent.lng = response.data.results[0].geometry.location.lng
-    let response2 = await axios.post('http://127.0.0.1:8000/api/events/create_event/', newEvent);
-    if(response2.status === 201) {
-      console.log("New Event Created")
-      // await viewAllEvents(); 
-    }
-  };
-
-
   // async function viewSingleProfile(id) {
   //     console.log("ViewSingleProfile - param: ", id)
   //   let response = await axios.get('http://127.0.0.1:8000/api/members/view_profile/${id}/', id); 
@@ -127,9 +129,6 @@ function App() {
   //   }
   // };
 
-//   // EVENTS FUNCTIONS HERE 
-
-
 
 //   async function viewSingleEvent(id) {
 //     let response = await axios.get('http://127.0.0.1:8000/api/events/view_event/${id}/');
@@ -137,12 +136,6 @@ function App() {
 //       await viewAllEvents();
 //     }
 //   }; 
-
-
-  
-
-
-
 
   
 //   async function createRsvp(newRsvp) {
@@ -164,12 +157,22 @@ function App() {
 
   return (
     <div>
-      {/* <MapComponent></MapComponent> */}
+{/* //  <Link to="/about">About</Link>
+//    <div>
+  //      <Routes>
+//           <Route exact path='/*' element={<Home user={user}/>} />
+//           <Route path='/login/' element={<Login setUser={setUser}/>} />
+//           <Route path='/register/' element={<Register/>} /> 
+  //     </Routes>
+//     </div> */}
 
       <AllEvents  events={events} createAnEvent= {createAnEvent} updateEvent={updateEvent} deleteEvent={deleteEvent}/>
-      <AllMembers members={members} updateMember={updateMember} createMember={createMember} /> 
+      <AllMembers members={members} createMember={createMember} updateMember={updateMember} /> 
 
-            {/* <CreateNewEvent createAnEvent= {createAnEvent} /> */}
+      {/* <MapComponent></MapComponent> */}
+
+
+
         {/* <Router>
           <Routes>
     
@@ -180,18 +183,7 @@ function App() {
 
         
         {/* <Route path='/update_members/' element={<AllMembers members={members}/>}/>  */}
-      {/* // <Route AllMembers parentEntries={members}/>   */}
-        {/* <ViewSingleProfile mode={'Edit'}/>
         <CreateMemberRequest parentEntries={members} createRequest={createRequest}/> 
-        <AllMembers parentEntries={members} />
-        <CreateNewMember parentEntries={members} createMember={createMember}/> */}
-
-        {/* <ReviseProfile revisedProfile={members} revisedProfile={revisedProfile}/> */}
-        
-        {/* <CreateNewEvent parentEntries={members} createAnEvent={createAnEvent}/>  */}
-        
-        {/* <AllEvents parentEntries={events} /> */}
-
 
         {/* <NavBar/> */}
         
@@ -212,11 +204,3 @@ export default App;
 </Routes> */}
 
 
-// <Link to="/about">About</Link>
-// <div>
-//         <Routes>
-//           <Route exact path='/*' element={<Home user={user}/>} />
-//           <Route path='/login/' element={<Login setUser={setUser}/>} />
-//           <Route path='/register/' element={<Register/>} />
-//         </Routes>
-//     </div>
