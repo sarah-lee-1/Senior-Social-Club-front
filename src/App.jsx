@@ -9,6 +9,7 @@ import ViewSingleProfile from './Components/Member/ViewSingleProfile';
 import CreateNewEvent from './Components/Admin/CreateNewEvent';
 import AllEvents from './Components/Admin/AllEvents';
 import EditAM from './Components/Admin/EditAM'; 
+import Home from './Home'; 
 import {
   BrowserRouter as Router,
   Routes,
@@ -161,46 +162,36 @@ function App() {
 //    <div>
   //      <Routes>
 //           <Route exact path='/*' element={<Home user={user}/>} />
-//           <Route path='/login/' element={<Login setUser={setUser}/>} />
-//           <Route path='/register/' element={<Register/>} /> 
+ 
   //     </Routes>
 //     </div> */}
+      <Navbar/>
+        <div className="homeContainer">
+          {!props.user ?
+          <Navigate to='/login/' replace={true}></Navigate> :
+          <>
+          <EditProfile/>
+          <AllEvents/>
+          <RsvpEvent/>
+          {/* <MapComponent></MapComponent> */}
+          </>
+          };
+          <div>
+          {!props.admin ?
+            <Navigate to='/login/' replace={true}></Navigate> :
+            <>
+            <AllEvents  events={events} createAnEvent= {createAnEvent} updateEvent={updateEvent} deleteEvent={deleteEvent}/>
+            <AllMembers members={members} createMember={createMember} updateMember={updateMember} /> 
+            </>
+            }; 
+        </div>
 
-      <AllEvents  events={events} createAnEvent= {createAnEvent} updateEvent={updateEvent} deleteEvent={deleteEvent}/>
-      <AllMembers members={members} createMember={createMember} updateMember={updateMember} /> 
-
-      {/* <MapComponent></MapComponent> */}
-
-
-
-        {/* <Router>
-          <Routes>
-    
-          <Route path='/update_profile' element={<EditAM members={members}/>}/>
-            
-          </Routes>
-        </Router> */}
-
-        
-        {/* <Route path='/update_members/' element={<AllMembers members={members}/>}/>  */}
-        <CreateMemberRequest parentEntries={members} createRequest={createRequest}/> 
-
-        {/* <NavBar/> */}
-        
+      </div>
     </div>
   );
-}
+};
 
 export default App;
 
-{/* <Route exact path='/*' element={<Home user={user}/>}/>  */}
 
-{/* <ViewSingleProfile parentEntries={members}/> RETURNS ALL MEMBERS */}
-
-
-
-{/* <Routes>
-  <Route path='/create_member/' element={CreateMember setMember{setMember}}/> 
-</Routes> */}
-
-
+  {/* <CreateMemberRequest parentEntries={members} createRequest={createRequest}/>  */}
