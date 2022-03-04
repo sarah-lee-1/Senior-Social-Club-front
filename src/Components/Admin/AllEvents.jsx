@@ -142,8 +142,8 @@ const AllEvents = (props) => {
         setEditEventId(null);
     };
 
-    const handleDeleteClick = (memberId) => {
-        props.deleteEvent(memberId);
+    const handleDeleteClick = (eventId) => {
+        props.deleteEvent(eventId);
     };
 
     return (
