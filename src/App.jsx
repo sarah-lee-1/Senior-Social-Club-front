@@ -163,7 +163,8 @@ function App() {
           <Routes>
               {/* <Route exact path='/' element={Home} /> */}
               <Route path='login' element={Login} />
-
+              <Route path='/get_all_members' element={getAllMembers} /> 
+              <Route path='/get_members/' element={<AllMembers members={members} createMember={createMember} updateMember={updateMember} /> } />
               <Route path='view_all_events' element={allEvents} /> 
               <Route path='/view_events/' element={<AllEvents events={events} createAnEvent={createAnEvent} deleteEvent={deleteEvent} updateEvent={updateEvent}/> } />
 
