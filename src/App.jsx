@@ -31,12 +31,12 @@ function App() {
 
   useEffect(() => {
     getAllMembers();
-    updateMember(); 
-    createMember();
+    // updateMember(); 
+    // createMember();
     allEvents();
-    updateEvent();
-    createAnEvent();
-    deleteEvent();
+    // updateEvent();
+    // createAnEvent();
+    // deleteEvent();
    
 
     // createRequest(); 
@@ -164,11 +164,8 @@ function App() {
               {/* <Route exact path='/' element={Home} /> */}
               <Route path='login' element={Login} />
 
-              <Route path='view_all_events' element={allEvents} />
-              {/* <Route path='delete_event' element={deleteEvent} /> */}
-              {/* <Route path='create_event' element={createAnEvent} />          */}
-              <Route path='/create_event/' element={<AllEvents createAnEvent={createAnEvent} newEvent={newEvent}/>} />
-              <Route path='/delete_event/' element={<AllEvents deleteEvent={deleteEvent} eventId={eventId}/>} /> 
+              <Route path='view_all_events' element={allEvents} /> 
+              <Route path='/view_events/' element={<AllEvents events={events} createAnEvent={createAnEvent} deleteEvent={deleteEvent} updateEvent={updateEvent}/> } />
 
          </Routes>
 
