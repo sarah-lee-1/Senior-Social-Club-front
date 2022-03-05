@@ -6,12 +6,15 @@ function MapComponent(props){
         
         <Map
         style={{
-            height:'400px',
-            width:'100%',
+            height:'600px',
+            width:'850px',  
+            // position: 'right',
+                   
+            
         }}
             google={props.google}
-            zoom={8}
-            initialCenter={{lat:43.0389, lng:-87.9065}}
+            zoom={10}
+            initialCenter={{lat:43.0313, lng:-88.0410}}
             >
                 <Marker position={{lat:43.077690, lng:-88.067322}}></Marker>
                 <Marker position={{lat:42.951480, lng:-87.999170}}></Marker>

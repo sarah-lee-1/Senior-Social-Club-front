@@ -28,6 +28,7 @@ function App() {
   const [events, setEvents] = useState([]);
   const [member, setMember] = useState([]);
   const [members, setMembers] = useState([]); 
+  const [userName, setUserName] = useState('');
 
   useEffect(() => {
     getAllMembers();
@@ -162,13 +163,12 @@ function App() {
         <div >
           <Routes>
               {/* <Route exact path='/' element={Home} /> */}
-              <Route path='login' element={Login} />
-              <Route path='/get_all_members' element={getAllMembers} /> 
-              <Route path='/get_members/' element={<AllMembers members={members} createMember={createMember} updateMember={updateMember} /> } />
+              <Route path='/login/' element={<Login userName={userName} /> } />
+              
               <Route path='view_all_events' element={allEvents} /> 
               <Route path='/view_events/' element={<AllEvents events={events} createAnEvent={createAnEvent} deleteEvent={deleteEvent} updateEvent={updateEvent}/> } />
-
-         </Routes>
+              <Route path='/get_members/' element={<AllMembers members={members} createMember={createMember} updateMember={updateMember} /> } />
+        </Routes>
 
         <React.Fragment>
           <MapComponent></MapComponent>
@@ -180,6 +180,11 @@ function App() {
 };
 
 export default App;
+
+
+              {/* <Route path='view_all_events' element={allEvents} />  */}
+              {/* <Route path='/get_all_members' element={getAllMembers} /> 
+              
 
 {/* <MapComponent></MapComponent> */}
 
