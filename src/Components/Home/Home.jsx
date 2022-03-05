@@ -1,21 +1,27 @@
-import Login from './Login';
-import Register from './Register';
-import {
-    BrowserRouter as Router,
-    Routes,
-    Route,
-    Link
-  } from 'react-router-dom';
+// import Login from './Login';
+// import Register from './Register';
+// // import Contact from './Contact';
 
-const Home(props) {
-    <div>
-    <Routes> 
-        <Route exact path='/*' element={<Home user={user}/>} /> 
-        <Route path='/login/' element={<Login setUser={setUser}/>} /> 
-        <Route path='/register/' element={<Register/>} />
-    </Routes>
-    </div>
+// import {
+//     BrowserRouter as Router,
+//     Routes,
+//     Route,
+//     Link
+//   } from 'react-router-dom';
 
-}; 
+// const Home(props) {
 
-export default Home; 
+//     return (
+//         <div>
+//         <Routes> 
+//             <Route exact path='/*' element={<Home user={user}/>} /> 
+//             <Route path='/login/' element={<Login setUser={setUser}/>} /> 
+//             <Route path='/register/' element={<Register/>} />
+//             <Route path='/contact' element={Contact} />
+//         </Routes>
+//         </div>
+//     )
+
+// }; 
+
+// export default Home; 

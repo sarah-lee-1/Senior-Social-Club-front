@@ -1,6 +1,6 @@
 .navbar {
     overflow: hidden;
-    background-color:rgb(41, 31, 31);
+    background-color:rgb(118, 85, 85);
     position: fixed; 
     top: 0;
     width: 100% 
@@ -10,7 +10,7 @@
 .navbar a {
     float: left;
     display: block; 
-    color: whitesmoke;
+    color: white;
     text-align: center;
     padding: 14px 16px; 
     text-decoration: none; 

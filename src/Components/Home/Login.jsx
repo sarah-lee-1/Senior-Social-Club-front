@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 
-const Login = () => {
+const Login = (props) => {
     let navigate = useNavigate();
 
     const [username, setUserName] = useState('');
@@ -13,7 +13,7 @@ const Login = () => {
         const jwt = localStorage.getItem('token');
         try {
             const decodedUser = jwt_decode(jwt);
-            props.setUser(decodedUser)
+            props.setUserName(decodedUser);
 
         }   catch {}
 
@@ -54,7 +54,7 @@ const Login = () => {
                 <div>
                     <div>
                         <form onSubmit={handleSubmit}>
-                        <input type='text' placeholder="User Name" required ='required' className="loginInput" onChange={(e) => setUsername(e.target.value)} defaultValue={username} />
+                        <input type='text' placeholder="User Name" required ='required' className="loginInput" onChange={(e) => setUserName(e.target.value)} defaultValue={username} />
                             <input type='text' placeholder="Password" required='required' className="loginInput" onChange={(e) => setPassword(e.target.value)} defaultValue={password}/>
                             <button className="loginButton">Log In</button>
                             <span className="loginForgot">Forgot Password</span>

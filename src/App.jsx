@@ -1,5 +1,4 @@
 import { Navigate } from 'react-router-dom'
-import ReactDOM from 'react-dom';
 import axios from 'axios'; 
 import React, { useState, useEffect } from 'react';
 import AllMembers from './Components/Admin/AllMembers'; 
@@ -9,16 +8,18 @@ import ViewSingleProfile from './Components/Member/ViewSingleProfile';
 import CreateNewEvent from './Components/Admin/CreateNewEvent';
 import AllEvents from './Components/Admin/AllEvents';
 import EditAM from './Components/Admin/EditAM'; 
-import Home from './Home'; 
+// import Home from '.Components/Home/Home';
+import NavBar from './Components/Navbar/Navbar';
+import Login from './Components/Home/Login';
+import { Fragment } from 'react/cjs/react.production.min';
 import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Link
+  Link,
 } from 'react-router-dom'
 import MapComponent from './Components/Map/MapComponent';
 
-// import NavBar from './Components/Navbar/Navbar';
 // import ReviseProfile from './Components/Member/ReviseProfile';
 
 
@@ -81,7 +82,6 @@ function App() {
       // await viewAllEvents();
     }
   };
-
   
   async function createAnEvent(newEvent) {
     let response = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${newEvent.street},${newEvent.city},${newEvent.state}&key=AIzaSyCu8MBgrDWN_kh5WIL1sTmura5i1v-mdOE`)
@@ -157,34 +157,24 @@ function App() {
 
 
   return (
-    <div>
-{/* //  <Link to="/about">About</Link>
-//    <div>
-  //      <Routes>
-//           <Route exact path='/*' element={<Home user={user}/>} />
- 
-  //     </Routes>
-//     </div> */}
-      <Navbar/>
-        <div className="homeContainer">
-          {!props.user ?
-          <Navigate to='/login/' replace={true}></Navigate> :
-          <>
-          <EditProfile/>
-          <AllEvents/>
-          <RsvpEvent/>
-          {/* <MapComponent></MapComponent> */}
-          </>
-          };
-          <div>
-          {!props.admin ?
-            <Navigate to='/login/' replace={true}></Navigate> :
-            <>
-            <AllEvents  events={events} createAnEvent= {createAnEvent} updateEvent={updateEvent} deleteEvent={deleteEvent}/>
-            <AllMembers members={members} createMember={createMember} updateMember={updateMember} /> 
-            </>
-            }; 
-        </div>
+    <div className="homeContainer">
+    <NavBar/>
+        <div >
+          <Routes>
+              {/* <Route exact path='/' element={Home} /> */}
+              <Route path='login' element={Login} />
+
+              <Route path='view_all_events' element={allEvents} />
+              {/* <Route path='delete_event' element={deleteEvent} /> */}
+              {/* <Route path='create_event' element={createAnEvent} />          */}
+              <Route path='/create_event/' element={<AllEvents createAnEvent={createAnEvent} newEvent={newEvent}/>} />
+              <Route path='/delete_event/' element={<AllEvents deleteEvent={deleteEvent} eventId={eventId}/>} /> 
+
+         </Routes>
+
+        <React.Fragment>
+          <MapComponent></MapComponent>
+        </React.Fragment>
 
       </div>
     </div>
@@ -192,6 +182,34 @@ function App() {
 };
 
 export default App;
+
+{/* <MapComponent></MapComponent> */}
+
+{/* <Route path='Allevents' element={AllEvents} createAnEvent= {createAnEvent} updateEvent={updateEvent} deleteEvent={deleteEvent}/> */}
+{/* <Route path='contact' element={Contact} /> */}
+<>
+              {/* <AllEvents path='AllEvents' element={AllEvents} />
+              <AllMembers path='AllMembers' element={AllMembers} /> */}
+
+{/* <EditProfile/> */}
+{/* <AllEvents/> */}
+{/* <RsvpEvent/> */}
+
+</>
+
+  {/* <>
+  <AllEvents  events={events} createAnEvent= {createAnEvent} updateEvent={updateEvent} deleteEvent={deleteEvent}/>
+  <AllMembers members={members} createMember={createMember} updateMember={updateMember} />  */}
+  // </>
+  // }; 
+
+{/* //  <Link to="/about">About</Link>
+//    <div>
+  //      <Routes>
+//           <Route exact path='/*' element={<Home user={user}/>} />
+ 
+  //     </Routes>
+//     </div> */}
 
 
   {/* <CreateMemberRequest parentEntries={members} createRequest={createRequest}/>  */}
