@@ -17,16 +17,16 @@ const Register = () => {
     const [state, setState] = useState('');
     const [zipCode, setZipCode] = useState('');
 
-    async function regUser(regUser) {
-        let response = await axios.post('http://127.0.0.1:8000/api/auth/register/', regUser);
+    async function regUser(newUser) {
+        let response = await axios.post('http://127.0.0.1:8000/api/auth/register/', newUser);
         if (response.status === 201) {
         setNewUser(response.data)
         };
     };   
 
     function handleSubmit(event) {
-        let regUser = {
-            newuser: newuser,
+        let newUser = {
+            username: username,
             password: password,
             first_name: firstName,
             middle_name: middleName,
@@ -37,8 +37,8 @@ const Register = () => {
             state: state, 
             zip_code: zipCode,
         };
-            regUser(regUser);
-            console.log(regUser) 
+            regUser(newUser);
+            console.log(newUser) 
             navigate('/login/')
     };
 
@@ -50,7 +50,7 @@ const Register = () => {
                 </div>
                 <div className="registerCtr" >
                         <form className="reg-box" onSubmit={handleSubmit}>
-                            <input type='text' placeholder="Username" required='required' className="registerinInput" onChange={(e) => setNewUser(e.target.value)} defaultValue={newUser} />
+                            <input type='text' placeholder="Username" required='required' className="registerinInput" onChange={(e) => setNewUser(e.target.value)} defaultValue={username} />
                             <input type='text' placeholder="Password" required='required' className="registerInput" onChange={(e) => setPassword(e.target.value)} defaultValue={password}/>
                             <input type='email' placeholder="Email" required='required' className="registerInput" onChange={(e) => setEmail(e.target.value)} defaultValue={email}/>
                             <input type='text' placeholder="First Name" required='required' className="registerInput" onChange={(e) => setFirstName(e.target.value)} defaultValue={firstName}/>

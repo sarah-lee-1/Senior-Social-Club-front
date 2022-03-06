@@ -165,7 +165,7 @@ function App() {
           <Routes>
               {/* <Route exact path='/' element={Home} /> */}
               <Route path='/login/' element={<Login userName={userName} /> } />
-              <Route path='/register/' element={<Register register={register} />} />
+              <Route path='/register/' element={<Register userName={userName}/>} />
               
               <Route path='/view_events/' element={<AllEvents events={events} createAnEvent={createAnEvent} deleteEvent={deleteEvent} updateEvent={updateEvent}/> } />
               <Route path='/view_members/' element={<AllMembers members={members} createMember={createMember} updateMember={updateMember} /> } />
@@ -183,24 +183,18 @@ function App() {
 
 export default App;
 
-
+              // regUser={regUser} 
               {/* <Route path='view_all_events' element={allEvents} />  */}
               {/* <Route path='/get_all_members' element={getAllMembers} /> 
-              
 
 {/* <MapComponent></MapComponent> */}
 
-// 
 
 {/* <Route path='Allevents' element={AllEvents} createAnEvent= {createAnEvent} updateEvent={updateEvent} deleteEvent={deleteEvent}/> */}
 {/* <Route path='contact' element={Contact} /> */}
 <>
               {/* <AllEvents path='AllEvents' element={AllEvents} />
               <AllMembers path='AllMembers' element={AllMembers} /> */}
-
-{/* <EditProfile/> */}
-{/* <AllEvents/> */}
-{/* <RsvpEvent/> */}
 
 </>
 
@@ -209,14 +203,5 @@ export default App;
   <AllMembers members={members} createMember={createMember} updateMember={updateMember} />  */}
   // </>
   // }; 
-
-{/* //  <Link to="/about">About</Link>
-//    <div>
-  //      <Routes>
-//           <Route exact path='/*' element={<Home user={user}/>} />
- 
-  //     </Routes>
-//     </div> */}
-
 
   {/* <CreateMemberRequest parentEntries={members} createRequest={createRequest}/>  */}
