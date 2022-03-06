@@ -15,7 +15,7 @@ const Login = (props) => {
             const decodedUser = jwt_decode(jwt);
             props.setUserName(decodedUser);
 
-        }   catch {}
+        } catch {}
 
     }, [])
 
@@ -44,27 +44,24 @@ const Login = (props) => {
         navigate('/register/');
     }
 
-    <div>
-        <div className="login">
-            <div className="loginWrapper">
-                <div className="loginBox">
-                    <h3 className="loginLogo">Senior Social Club</h3>
-                    <span className="loginDesc">Join in the Fun</span>
-                </div>
-                <div>
-                    <div>
-                        <form onSubmit={handleSubmit}>
-                        <input type='text' placeholder="User Name" required ='required' className="loginInput" onChange={(e) => setUserName(e.target.value)} defaultValue={username} />
-                            <input type='text' placeholder="Password" required='required' className="loginInput" onChange={(e) => setPassword(e.target.value)} defaultValue={password}/>
-                            <button className="loginButton">Log In</button>
-                            <span className="loginForgot">Forgot Password</span>
-                            <button className='loginRegisterButton' onClick={handleClick}> Register </button>
-                        </form>
-                    </div>
-                </div>
+    return (
+        <div >
+            <div className="login-box">
+                <h3 className="login-logo">Senior Social Club</h3>
+                <span className="login-desc">Join in on the Fun</span>
+            </div>
+            <div>
+                <form className="login-form" onSubmit={handleSubmit}>
+                    <input type='text' placeholder="User Name" required ='required' className="loginInput" onChange={(e) => setUserName(e.target.value)} defaultValue={username} />
+                        <input type='text' placeholder="Password" required='required' className="loginInput" onChange={(e) => setPassword(e.target.value)} defaultValue={password}/>
+                        <button className="login-btn">Log In</button>
+                        {/* <span className="loginForgot">Forgot Password</span> */}
+                        <button className='reg-btn' onClick={handleClick}> Register </button>
+                </form>
             </div>
         </div>
-    </div>
+    );
+
 
 }
 

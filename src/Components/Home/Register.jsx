@@ -6,9 +6,9 @@ const Register = () => {
 
     let navigate = useNavigate();
 
+    const [newUser, setNewUser] = useState('');
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [email, setEmail] = useState('');
     const [firstName, setFirstName] =useState ('');
     const [middleName, setMiddleName] = useState('');
     const [lastName, setLastName] = useState('');
@@ -17,19 +17,18 @@ const Register = () => {
     const [city, setCity] = useState('');
     const [state, setState] = useState('');
     const [zipCode, setZipCode] = useState('');
-    const [newUser, setNewUser] = useState('');
 
-    async function regUser(newUser) {
+    async function regUser(regUser) {
 
-        let response = await axios.post('http://127.0.0.1:8000/api/auth/register/', newUser);
+        let response = await axios.post('http://127.0.0.1:8000/api/auth/register/', regUser);
         if (response.status === 201) {
         setNewUser(response.data)
         };
     };   
 
     function handleSubmit(event) {
-        let newUser = {
-            username: username,
+        let regUser = {
+            newuser: newuser,
             password: password,
             first_name: firstName,
             middle_name: middleName,
@@ -40,22 +39,20 @@ const Register = () => {
             state: state, 
             zip_code: zipCode,
         };
-            regUser(newUser);
-            console.log(newUser)
+            regUser(regUser);
+            console.log(regUser) 
             navigate('/login/')
     };
 
     return (
-        <div className="register" >
             <div className="registerWrapper" >
                 <div className="registerCenter">
                     <h3 className="registerLogo">Senior Social Club</h3>
                     <span className="registerDesc">Join Today</span>
                 </div>
                 <div className="registerCtr" >
-                    <div className="registerBox" >
-                        <form onSubmit={handleSubmit}>
-                            <input type='text' placeholder="Username" required='required' className="registerinInput" onChange={(e) => setUsername(e.target.value)} defaultValue={username} />
+                        <form className="reg-box" onSubmit={handleSubmit}>
+                            <input type='text' placeholder="Username" required='required' className="registerinInput" onChange={(e) => setNewUser(e.target.value)} defaultValue={newUser} />
                             <input type='text' placeholder="Password" required='required' className="registerInput" onChange={(e) => setPassword(e.target.value)} defaultValue={password}/>
                             <input type='email' placeholder="Email" required='required' className="registerInput" onChange={(e) => setEmail(e.target.value)} defaultValue={email}/>
                             <input type='text' placeholder="First Name" required='required' className="registerInput" onChange={(e) => setFirstName(e.target.value)} defaultValue={firstName}/>
@@ -67,10 +64,8 @@ const Register = () => {
                             <input type='text' placeholder="Zip Code" required='required' className="registerInput" onChange={(e) => setZipCode(e.target.value)} defaultValue={zipCode}/>
                             <button className="registerButton" type='submit' >Sign Up</button>     
                         </form>
-                    </div>
                 </div>
             </div>
-        </div>
     )
 }
 

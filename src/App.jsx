@@ -11,6 +11,7 @@ import EditAM from './Components/Admin/EditAM';
 // import Home from '.Components/Home/Home';
 import NavBar from './Components/Navbar/Navbar';
 import Login from './Components/Home/Login';
+import Register from './Components/Home/Register';
 import { Fragment } from 'react/cjs/react.production.min';
 import {
   BrowserRouter as Router,
@@ -163,7 +164,7 @@ function App() {
         <div >
           <Routes>
               {/* <Route exact path='/' element={Home} /> */}
-              <Route path='/login/' element={<Login userName={userName} /> } />
+              <Route path='/login/' element={<Login userName={userName}  /> } />
               
               <Route path='view_all_events' element={allEvents} /> 
               <Route path='/view_events/' element={<AllEvents events={events} createAnEvent={createAnEvent} deleteEvent={deleteEvent} updateEvent={updateEvent}/> } />
@@ -187,6 +188,8 @@ export default App;
               
 
 {/* <MapComponent></MapComponent> */}
+
+// newUser={newUser}
 
 {/* <Route path='Allevents' element={AllEvents} createAnEvent= {createAnEvent} updateEvent={updateEvent} deleteEvent={deleteEvent}/> */}
 {/* <Route path='contact' element={Contact} /> */}

@@ -16,8 +16,41 @@
 
 }
 
+.button-1 {
+    border: rgb(118, 85, 85);
+    background-color: whitesmoke;
+}
+
+.button:hover {
+    background: orange; 
+    color: white;
+}
+
+.login-btn {
+    float: left;
+    border-radius: 4px;
+    background-color:antiquewhite;
+    color: black;
+    padding: 5px 62px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+    margin-top: 10px;
+}
+
+.reg-btn {
+    float: left;
+    border-radius: 4px;
+    background-color:rgb(118, 85, 85);
+    color: white;
+    padding: 5px 55px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+    margin-top: 25px;
+}
+
 .logout-btn {
     float: right;
+    border-radius: 5px;
     background-color:antiquewhite;
     padding: 12px 25px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -31,6 +64,7 @@
 .add-btn {
     float: left;
     border: none;
+    border-radius: 4px;
     background-color:rgb(35, 132, 35);
     color: white;
     padding: 5px 73px;
@@ -42,6 +76,7 @@
 .del-btn {
     float: left;
     border: none;
+    border-radius: 4px;
     background-color:rgb(174, 37, 19);
     color: white;
     padding: 5px 10px;
@@ -54,6 +89,7 @@
 .ed-btn {
     float: left;
     border: none;
+    border-radius: 4px;
     background-color:rgb(118, 85, 85);
     color: white;
     padding: 5px 10px;
@@ -66,6 +102,7 @@
 .sav-btn {
     float: left;
     border: none;
+    border-radius: 4px;
     background-color:yellow;
     color: black;
     padding: 5px 10px;
@@ -77,6 +114,7 @@
 .cxl-btn {
     float: left;
     border: none;
+    border-radius: 4px;
     background-color:gray;
     color: whitesmoke;
     padding: 5px 10px;
@@ -105,12 +143,7 @@ a:hover {
     color:red; 
 } 
 
-.button-1 {
-    border: rgb(118, 85, 85);
-    background-color: whitesmoke;
 
-
-}
 
 .map-container {
     position: relative;
@@ -136,26 +169,51 @@ body {
     margin:0; 
 }
 
-.container {
-    width: 80%;
-    margin: auto;
+.login-logo {
+    font-size: 55px;
+    color: rgb(99, 37, 37);
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-style:italic; 
 }
 
-.button {
-    background-color: crimson;
-    color: #395558;
-    padding: 10px 25px;
-    border: 1px;
-    border-color: rgb(79, 19, 19);
+.login-desc {
+    font-size: 25px;
+    color: rgb(99, 37, 37);
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-style:italic bold; 
 }
 
-.button:hover {
-    background: orange; 
-    color: white;
+.login-box {
+    border: none;
+    width: 100%;
+    padding: 20px;
+    padding-top: 8%;
+    padding-left:20px;
+    display: column;
+     /* margin: 8px 0; */
+}
+
+.login-form {
+    width: 20%;
+    padding: 20px;
+    padding-left: 100px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    box-sizing: border-box;
+    display: column;
+    column-gap: 10px;
+    /* box-sizing: border-box; */
+    /* display: inline-block; */
 }
 
 .title-1 {
     display: inline;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
 }
 
 .container-1 {
@@ -167,7 +225,7 @@ body {
     padding-top: 8%;
     margin: 20px;
     text-align: left; 
-    width: 750%;
+    width: 850%;
     display: column; 
     column-gap: 10px;
      /* flex-direction: column;  */
