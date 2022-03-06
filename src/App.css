@@ -109,6 +109,7 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 15px;
     margin-top: 5px; 
+    margin-left: 11px;
 }
 
 .cxl-btn {
@@ -121,7 +122,7 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 15px;
     margin-top: 5px; 
-    margin-left: 5px;
+    margin-left: 30px;
 }
 
 .navbar a {
@@ -237,10 +238,7 @@ body {
     text-decoration:underline; 
     text-transform:uppercase;
     letter-spacing:0.2em;
-    word-spacing:1em;
     padding-top: 10%;
-    column-gap: 10px;
-
 }
 
 .box-1 {
@@ -250,7 +248,8 @@ body {
     border: 5px rgb(255, 145, 0);
     padding: 20px;
     margin: 20px;
-    width: 188px;
+    width: 200px;
+
 }
 
 

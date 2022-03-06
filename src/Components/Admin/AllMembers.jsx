@@ -153,7 +153,7 @@ const AllMembers = (props) => {
             <h3>Member Directory</h3>  
         <form onSubmit={handleEditFormSubmit}>
             <table>
-                <thead>
+                {/* <thead>
                     <tr>First Name</tr>
                     <tr>Middle Name</tr>
                     <tr>Last Name</tr>
@@ -164,7 +164,7 @@ const AllMembers = (props) => {
                     <tr>Zip Code</tr>
                     <tr>Active Status</tr>
                     <tr>Balance</tr>
-                </thead>
+                </thead> */}
 
               
                     {props.members.map((member) => (
@@ -256,7 +256,7 @@ const AllMembers = (props) => {
                         placeholder='Enter balance'
                         onChange={handleAddFormChange} />
 
-                        <button type='submit'>Add</button>
+                        <button className="add-btn" type='submit'>Add</button>
 
             </form>
         </div>

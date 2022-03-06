@@ -94,9 +94,13 @@ const AllMembersEditRow = ({ editFormData, handleEditFormChange, handleCancelCli
                 onChange={handleEditFormChange} />
             </td>
             <td>
-                <button type='submit'
+                <button 
+                className="sav-btn"
+                type='submit'
                 >Save</button>
-                <button type='button' 
+                <button 
+                className="cxl-btn"
+                type='button' 
                 onClick={handleCancelClick}>Cancel</button>
 
             </td>

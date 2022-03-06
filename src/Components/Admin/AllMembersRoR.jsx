@@ -15,12 +15,14 @@ const AllMembersRoR = ({ member, handleEditClick, handleDeleteClick }) => {
             <td>{member.balance}</td> 
             <td>
                 <button
+                    className="ed-btn"
                     type="button"
                     onClick={(event) => handleEditClick(event, member)}
                 >Edit</button>
             </td>
             <td>
                 <button
+                    className="del-btn"
                     type="button"
                     onClick={() => handleDeleteClick(member.id)}
                 >Delete</button>
