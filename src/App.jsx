@@ -154,13 +154,12 @@ function App() {
     <NavBar/>
         <div >
           <Routes>
-              {/* <Route exact path='/' element={Home} /> */}
-              <Route path='/login/' element={<Login userName={userName} /> } />
+              <Route path='/' element={<Login userName={userName} /> } />
               <Route path='/register/' element={<Register />} />
               
               <Route path='/view_events/' element={<AllEvents events={events} createAnEvent={createAnEvent} deleteEvent={deleteEvent} updateEvent={updateEvent}/> } />
               <Route path='/view_members/' element={<AllMembers members={members} createMember={createMember} updateMember={updateMember} /> } />
-              <Route path='view_all_events' element={allEvents} /> 
+              <Route path='/members/' element={<MemberProfile members={members} updateMember={updateMember} />} /> 
         </Routes>
 {/* 
         <React.Fragment>

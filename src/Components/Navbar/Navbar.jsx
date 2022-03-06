@@ -25,7 +25,7 @@ const NavBar = (props) => {
       <div>
       <ul>
         <li>
-          <Link to='/login/'>Login</Link>
+          <Link to='/'>Login</Link>
         </li>
         <li>
         <Link to='/view_events/'>Admin Events</Link>
@@ -34,7 +34,7 @@ const NavBar = (props) => {
         <Link to='/view_members/'>Admin Members</Link>
         </li>
         <li>
-        <Link to='/member/'>Members</Link>
+        <Link to='/members/'>Members</Link>
         </li>
 
 

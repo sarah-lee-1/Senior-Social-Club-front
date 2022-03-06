@@ -24,7 +24,7 @@ const Login = (props) => {
         let response = await axios.post('http://127.0.0.1:8000/api/auth/login/', loginUser);
         localStorage.setItem('token', response.data.access);
 
-        navigate('/home/');
+        navigate('/members/');
         if(response.status === 201) {
 
         };
