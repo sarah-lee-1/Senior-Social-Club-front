@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { React, useState, useEffect } from 'react'
 
 const Register = () => {
-
     let navigate = useNavigate();
 
     const [newUser, setNewUser] = useState('');
@@ -19,7 +18,6 @@ const Register = () => {
     const [zipCode, setZipCode] = useState('');
 
     async function regUser(regUser) {
-
         let response = await axios.post('http://127.0.0.1:8000/api/auth/register/', regUser);
         if (response.status === 201) {
         setNewUser(response.data)

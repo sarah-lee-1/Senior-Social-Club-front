@@ -2,12 +2,12 @@ import { Navigate } from 'react-router-dom'
 import axios from 'axios'; 
 import React, { useState, useEffect } from 'react';
 import AllMembers from './Components/Admin/AllMembers'; 
-import CreateNewMember from './Components/Admin/CreateNewMember';
+import CreateNewMember from './Components/Xtra/CreateNewMember';
 import CreateMemberRequest from './Components/Member/CreateMemberReq';
-import ViewSingleProfile from './Components/Member/ViewSingleProfile';
-import CreateNewEvent from './Components/Admin/CreateNewEvent';
+import ViewSingleProfile from './Components/Xtra/ViewSingleProfile';
+import CreateNewEvent from './Components/Xtra/CreateNewEvent';
 import AllEvents from './Components/Admin/AllEvents';
-import EditAM from './Components/Admin/EditAM'; 
+import EditAM from './Components/Xtra/EditAM'; 
 // import Home from '.Components/Home/Home';
 import NavBar from './Components/Navbar/Navbar';
 import Login from './Components/Home/Login';
@@ -164,11 +164,12 @@ function App() {
         <div >
           <Routes>
               {/* <Route exact path='/' element={Home} /> */}
-              <Route path='/login/' element={<Login userName={userName}  /> } />
+              <Route path='/login/' element={<Login userName={userName} /> } />
+              <Route path='/register/' element={<Register register={register} />} />
               
-              <Route path='view_all_events' element={allEvents} /> 
               <Route path='/view_events/' element={<AllEvents events={events} createAnEvent={createAnEvent} deleteEvent={deleteEvent} updateEvent={updateEvent}/> } />
               <Route path='/view_members/' element={<AllMembers members={members} createMember={createMember} updateMember={updateMember} /> } />
+              <Route path='view_all_events' element={allEvents} /> 
         </Routes>
 {/* 
         <React.Fragment>
@@ -189,7 +190,7 @@ export default App;
 
 {/* <MapComponent></MapComponent> */}
 
-// newUser={newUser}
+// 
 
 {/* <Route path='Allevents' element={AllEvents} createAnEvent= {createAnEvent} updateEvent={updateEvent} deleteEvent={deleteEvent}/> */}
 {/* <Route path='contact' element={Contact} /> */}
