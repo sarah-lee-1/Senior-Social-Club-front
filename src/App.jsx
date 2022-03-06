@@ -33,21 +33,12 @@ function App() {
 
   useEffect(() => {
     getAllMembers();
-    // updateMember(); 
-    // createMember();
     allEvents();
-    // updateEvent();
-    // createAnEvent();
-    // deleteEvent();
-   
 
     // createRequest(); 
-    // viewSingleProfile(); 
-
-    // viewSingleEvent();
     // createRsvp();
     // viewEventMap(); 
-       
+      
   }, [])
 
 
@@ -165,7 +156,7 @@ function App() {
           <Routes>
               {/* <Route exact path='/' element={Home} /> */}
               <Route path='/login/' element={<Login userName={userName} /> } />
-              <Route path='/register/' element={<Register userName={userName}/>} />
+              <Route path='/register/' element={<Register />} />
               
               <Route path='/view_events/' element={<AllEvents events={events} createAnEvent={createAnEvent} deleteEvent={deleteEvent} updateEvent={updateEvent}/> } />
               <Route path='/view_members/' element={<AllMembers members={members} createMember={createMember} updateMember={updateMember} /> } />
@@ -182,7 +173,7 @@ function App() {
 };
 
 export default App;
-
+// userName={userName}
               // regUser={regUser} 
               {/* <Route path='view_all_events' element={allEvents} />  */}
               {/* <Route path='/get_all_members' element={getAllMembers} /> 

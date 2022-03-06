@@ -145,7 +145,6 @@ a:hover {
 } 
 
 
-
 .map-container {
     position: relative;
     float: right; 
@@ -177,7 +176,21 @@ body {
     font-style:italic; 
 }
 
+.reg-logo {
+    font-size: 55px;
+    color: rgb(99, 37, 37);
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-style:italic; 
+}
+
 .login-desc {
+    font-size: 25px;
+    color: rgb(99, 37, 37);
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-style:italic bold; 
+}
+
+.reg-desc {
     font-size: 25px;
     color: rgb(99, 37, 37);
     font-family:Georgia, 'Times New Roman', Times, serif;
@@ -194,7 +207,31 @@ body {
      /* margin: 8px 0; */
 }
 
+.reg-box {
+    border: none;
+    width: 100%;
+    padding: 20px;
+    padding-top: 8%;
+    padding-left:20px;
+    display: column;
+     /* margin: 8px 0; */
+}
+
 .login-form {
+    width: 20%;
+    padding: 20px;
+    padding-left: 100px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    box-sizing: border-box;
+    display: column;
+    column-gap: 10px;
+    /* box-sizing: border-box; */
+    /* display: inline-block; */
+}
+
+.reg-form {
     width: 20%;
     padding: 20px;
     padding-left: 100px;
