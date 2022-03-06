@@ -182,7 +182,7 @@ const AllEvents = (props) => {
             </table>
         </form>
         <h3>Add an Event</h3>
-            <form onSubmit={handleAddFormSubmit}>
+            <form className="box-1" onSubmit={handleAddFormSubmit}>
                 <input
                 name='title' 
                 type='text'

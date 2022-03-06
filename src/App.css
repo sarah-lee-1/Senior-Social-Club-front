@@ -92,9 +92,9 @@ body {
     padding-top: 10%;
     margin: 20px;
     text-align: left; 
-    width: 850%;
+    width: 750%;
     display: flex; 
-}
+} 
 
 .box-1 {
     background-color: rgb(233, 217, 217);

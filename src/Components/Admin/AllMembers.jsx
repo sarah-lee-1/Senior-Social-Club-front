@@ -185,7 +185,7 @@ const AllMembers = (props) => {
             </form>
 
             <h3>Add a Member</h3>
-            <form onSubmit={handleAddFormSubmit}>
+            <form className='box-1' onSubmit={handleAddFormSubmit}>
                         <input 
                         name='first_name'
                         type='text'
