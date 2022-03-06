@@ -15,12 +15,14 @@ const AllEventsRoR = ({ event, handleEditClick, handleDeleteClick }) => {
             <td>{event.zip_code}</td>
             <td>
                 <button
+                className="ed-btn"
                 type="button"
                 onClick={(edit) => handleEditClick(edit, event)}
                 >Edit</button>
             </td>
             <td>
                 <button 
+                className="del-btn"
                 type="button"
                 onClick={() => handleDeleteClick(event.id)}
                 >Delete</button>

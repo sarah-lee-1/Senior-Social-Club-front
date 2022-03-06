@@ -2,7 +2,7 @@ import React from 'react';
 
 const AllEventsEditRow = ({ editFormData, handleEditFormChange, handleCancelClick }) => {
     return (
-        <tr>
+        <tr >
             <td>
                 <input  
                 name='title'
@@ -94,9 +94,13 @@ const AllEventsEditRow = ({ editFormData, handleEditFormChange, handleCancelClic
                 onChange={handleEditFormChange} />
             </td>
             <td>
-                <button type="submit">Save</button>
+                <button 
+                className="sav-btn"
+                type="submit">Save</button>
 
-                <button type="button"
+                <button 
+                className="cxl-btn"
+                type="button"
                 onClick={handleCancelClick}>Cancel</button>
             </td>
         </tr>

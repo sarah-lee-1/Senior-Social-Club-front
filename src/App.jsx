@@ -167,12 +167,12 @@ function App() {
               
               <Route path='view_all_events' element={allEvents} /> 
               <Route path='/view_events/' element={<AllEvents events={events} createAnEvent={createAnEvent} deleteEvent={deleteEvent} updateEvent={updateEvent}/> } />
-              <Route path='/get_members/' element={<AllMembers members={members} createMember={createMember} updateMember={updateMember} /> } />
+              {/* <Route path='/get_members/' element={<AllMembers members={members} createMember={createMember} updateMember={updateMember} /> } /> */}
         </Routes>
-
+{/* 
         <React.Fragment>
           <MapComponent></MapComponent>
-        </React.Fragment>
+        </React.Fragment> */}
 
       </div>
     </div>

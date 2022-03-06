@@ -148,21 +148,21 @@ const AllEvents = (props) => {
 
     return (
        <div className="container-1">
-           <h2>Event Directory</h2>
+           <h3>Event Directory</h3>
         <form onSubmit={handleEditFormSubmit}>
             <table>
-                <thead>
-                    <tr>Title</tr>
-                    <tr>Description</tr>
-                    <tr>Month</tr>
-                    <tr>Day</tr>
-                    <tr>Year</tr>
-                    <tr>Time</tr>
-                    <tr>Street Address</tr>
-                    <tr>City</tr>
-                    <tr>State</tr>
-                    <tr>Zip Code</tr>
-                </thead>
+                {/* <thead>
+                    <tr className='title-1'>Title</tr>
+                    <tr className='title-1'>Description</tr>
+                    <tr className='title-1'>Month</tr>
+                    <tr className='title-1'>Day</tr>
+                    <tr className='title-1'>Year</tr>
+                    <tr className='title-1'>Time</tr>
+                    <tr className='title-1'>Street Address</tr>
+                    <tr className='title-1'>City</tr>
+                    <tr className='title-1'>State</tr>
+                    <tr className='title-1'>Zip Code</tr>
+                </thead> */}
 
                 {props.events.map((event) => (
                     <Fragment>
@@ -253,7 +253,7 @@ const AllEvents = (props) => {
                 placeholder='Enter zip code...'
                 onChange={handleAddFormChange} />
                 
-                <button type="submit">Add</button>
+                <button className="add-btn" type="submit">Add</button>
 
             </form>
 

@@ -150,7 +150,7 @@ const AllMembers = (props) => {
 
     return (
         <div className="container-1">
-            <h2>Member Directory</h2>  
+            <h3>Member Directory</h3>  
         <form onSubmit={handleEditFormSubmit}>
             <table>
                 <thead>

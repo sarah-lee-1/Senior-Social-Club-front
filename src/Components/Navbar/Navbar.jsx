@@ -24,13 +24,24 @@ const NavBar = (props) => {
       <Fragment>
       <div>
       <ul>
-        <Link to='/'/><li>Home</li>
-        <Link to='/login/'/><li>Login</li>
-        {/* <Link to='/Contact/'/><li>Contact</li> */}
+        <li>
+          <Link to='/login/'>Login</Link>
+        </li>
+        <li>
+        <Link to='/view_events/'>Admin Events</Link>
+        </li>
+        <li>
+        <Link to='/view_members/'>Admin Members</Link>
+        </li>
+        <li>
+        <Link to='/member/'>Members</Link>
+        </li>
+
+
         </ul>
       </div>
             <div className="logoutBox" >
-                <button className="logoutButton" onClick={handleLogout}>Logout</button>
+                <button className="logout-btn" onClick={handleLogout}>Logout</button>
             </div>  
       </Fragment>
   </nav>
@@ -40,3 +51,7 @@ const NavBar = (props) => {
 }
 
 export default NavBar; 
+{/* 
+// <Link to='/'/><li>Home</li>
+        // <Link to='/login/'/><li>Login</li> */}
+        {/* <Link to='/Contact/'/><li>Contact</li> */}
