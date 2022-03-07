@@ -19,7 +19,7 @@ const ViewEvents = (props) => {
             </thead>
 
             <tbody>
-                {props.parentEntries.map((event, index) => {
+                {props.events.map((event, index) => {
                     return (
                         <tr key={event.id}>
                             <td>{event.title}</td>

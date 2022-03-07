@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 
-const Login = (props) => {
+const AdminLogin = (props) => {
     let navigate = useNavigate();
 
     const [username, setUserName] = useState('');
@@ -20,6 +20,7 @@ const Login = (props) => {
     }, [])
 
     async function login(loginUser) {
+
         let response = await axios.post('http://127.0.0.1:8000/api/auth/login/', loginUser);
         localStorage.setItem('token', response.data.access);
 
@@ -38,20 +39,15 @@ const Login = (props) => {
         login(loginUser);
     };
 
-    async function handleClick(event) {
-        event.preventDefault();
-        navigate('/register/');
-    }
-
-    async function handleClick(event) {
-        event.preventDefault();
-        navigate('/admin_login/');
-    }
+    // async function handleClick(event) {
+    //     event.preventDefault();
+    //     navigate('/register/');
+    // }
 
     return (
         <div >
             <div className="login-box">
-                <h3 className="login-logo">Senior Social Club</h3>
+                <h3 className="login-logo">Welcome Senior Social Club</h3>
                 <span className="login-desc">Join in on the Fun</span>
             </div>
             <div>
@@ -62,16 +58,10 @@ const Login = (props) => {
                         className="login-btn"
                         >Log In</button>
                        
-                        <button 
+                        {/* <button 
                         className='reg-btn' 
                         onClick={handleClick}
-                        >Register</button>
-                        
-                        <button 
-                        className='admin-btn' 
-                        onClick={handleClick}
-                        >Admin Login</button>
-
+                        > Register </button> */}
                 </form>
             </div>
         </div>
@@ -80,6 +70,4 @@ const Login = (props) => {
 
 }
 
-export default Login; 
-
- {/* <span className="loginForgot">Forgot Password</span> */}
+export default AdminLogin; 

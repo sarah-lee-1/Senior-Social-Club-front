@@ -14,18 +14,12 @@ const MEventsRoR = ({ event, handleEditClick, handleDeleteClick }) => {
             <td>{event.state}</td>
             <td>{event.zip_code}</td>
             <td>
+                {/* CURRENTLY THIS IS AN EDIT BUTTON */}
                 <button
                 className="ed-btn"
                 type="button"
                 onClick={(edit) => handleEditClick(edit, event)}
-                >Edit</button>
-            </td>
-            <td>
-                <button 
-                className="del-btn"
-                type="button"
-                onClick={() => handleDeleteClick(event.id)}
-                >Delete</button>
+                >RSVP</button>
             </td>
         </tr>
     );

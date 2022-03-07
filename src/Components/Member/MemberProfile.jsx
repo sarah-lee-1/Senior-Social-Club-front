@@ -101,7 +101,7 @@ const MemberProfile = (props) => {
 
     async function updateProfile(id) {
         console.log("ViewSingleProfile - param: ", id)
-        let response = await axios.put(`http://127.0.0.1:8000/api/members/update_profile/${id}/`);
+        let response = await axios.put(`http://127.0.0.1:8000/api/members/update_member/${id}/`);
         if (response.status === 200) {
             console.log("Profile Retrieved")
             let foundProfile = response.data;

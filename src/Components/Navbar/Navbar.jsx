@@ -28,6 +28,9 @@ const NavBar = (props) => {
           <Link to='/'>Login</Link>
         </li>
         <li>
+          <Link to='/admin_login/'>Admin Login</Link>
+        </li>
+        <li>
         <Link to='/view_events/'>Admin Events</Link>
         </li>
         <li>
@@ -35,6 +38,9 @@ const NavBar = (props) => {
         </li>
         <li>
         <Link to='/members/'>Members</Link>
+        </li>
+        <li>
+        <Link to='/member_events/'>Member Events</Link>
         </li>
 
 

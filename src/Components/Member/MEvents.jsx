@@ -19,18 +19,18 @@ const MEvents = (props) => {
     const [todods, setTodos] = useState(''); 
 
 
-    const [addFormData, setAddFormData] = useState({
-        title: title,
-        description: description,
-        month: month,
-        day: day,
-        year: year,
-        time: time,
-        street: street,
-        city: city,
-        state: state,
-        zip_code: zipCode,
-    }, []);
+    // const [addFormData, setAddFormData] = useState({
+    //     title: title,
+    //     description: description,
+    //     month: month,
+    //     day: day,
+    //     year: year,
+    //     time: time,
+    //     street: street,
+    //     city: city,
+    //     state: state,
+    //     zip_code: zipCode,
+    // }, []);
 
     const [editFormData, setEditFormData] = useState({
         id: id,
@@ -48,18 +48,18 @@ const MEvents = (props) => {
 
     const [editEventId, setEditEventId] = useState(null);
 
-    const handleAddFormChange = (event) => {
-        event.preventDefault();
+    // const handleAddFormChange = (event) => {
+    //     event.preventDefault();
 
-        const fieldName = event.target.getAttribute('name');
-        const fieldValue = event.target.value;
+    //     const fieldName = event.target.getAttribute('name');
+    //     const fieldValue = event.target.value;
      
-        const newFormData = {...addFormData};
+    //     const newFormData = {...addFormData};
     
-        newFormData[fieldName] = fieldValue;
+    //     newFormData[fieldName] = fieldValue;
 
-        setAddFormData(newFormData);
-    };
+    //     setAddFormData(newFormData);
+    // };
 
     const handleEditFormChange = (event) =>{
         event.preventDefault();
@@ -72,25 +72,25 @@ const MEvents = (props) => {
         setEditFormData(newFormData);
     };
 
-    const handleAddFormSubmit = (event) => {
-        event.preventDefault();
+    // const handleAddFormSubmit = (event) => {
+    //     event.preventDefault();
 
-        const newEvent = {
-        title: addFormData.title,
-        description: addFormData.description,
-        month: addFormData.month,
-        day: addFormData.day,
-        year: addFormData.year,
-        time: addFormData.time,
-        street: addFormData.street,
-        city: addFormData.city,
-        state: addFormData.state,
-        zip_code: addFormData.zip_code,
-        };
-        const newEvents = [props.events, newEvent];
-        setEvents(newEvents);
-        props.createAnEvent(newEvent)
-    };
+    //     const newEvent = {
+    //     title: addFormData.title,
+    //     description: addFormData.description,
+    //     month: addFormData.month,
+    //     day: addFormData.day,
+    //     year: addFormData.year,
+    //     time: addFormData.time,
+    //     street: addFormData.street,
+    //     city: addFormData.city,
+    //     state: addFormData.state,
+    //     zip_code: addFormData.zip_code,
+    //     };
+    //     const newEvents = [props.events, newEvent];
+    //     setEvents(newEvents);
+    //     props.createAnEvent(newEvent)
+    // };
 
     const handleEditFormSubmit = (event) => {
         event.preventDefault();
@@ -138,127 +138,48 @@ const MEvents = (props) => {
         setEditFormData(formValues)
     };
 
-    const handleCancelClick = () => {
+    const handleCancelClick = () => { 
         setEditEventId(null);
     };
 
-    const handleDeleteClick = (eventId) => {
-        props.deleteEvent(eventId);
-    };
 
     return (
-       <div className="container-1">
+        <div className="container-1">
            <h3>Event Directory</h3>
-        <form onSubmit={handleEditFormSubmit}>
-            <table>
-                {/* <thead>
-                    <tr className='title-1'>Title</tr>
-                    <tr className='title-1'>Description</tr>
-                    <tr className='title-1'>Month</tr>
-                    <tr className='title-1'>Day</tr>
-                    <tr className='title-1'>Year</tr>
-                    <tr className='title-1'>Time</tr>
-                    <tr className='title-1'>Street Address</tr>
-                    <tr className='title-1'>City</tr>
-                    <tr className='title-1'>State</tr>
-                    <tr className='title-1'>Zip Code</tr>
-                </thead> */}
+            <form onSubmit={handleEditFormSubmit}>
+                <table>
+                    {/* <thead>
+                        <tr className='title-1'>Title</tr>
+                        <tr className='title-1'>Description</tr>
+                        <tr className='title-1'>Month</tr>
+                        <tr className='title-1'>Day</tr>
+                        <tr className='title-1'>Year</tr>
+                        <tr className='title-1'>Time</tr>
+                        <tr className='title-1'>Street Address</tr>
+                        <tr className='title-1'>City</tr>
+                        <tr className='title-1'>State</tr>
+                        <tr className='title-1'>Zip Code</tr>
+                    </thead> */}
 
-                {props.events.map((event) => (
-                    <Fragment>
-                        {editEventId === event.id ?
-                    ( <MEventsEditRow
-                        editFormData={editFormData}
-                        handleEditFormChange={handleEditFormChange}
-                        handleCancelClick={handleCancelClick} /> ) :
-                    ( <MEventsRoR
-                        event={event}
-                        handleEditClick={handleEditClick}
-                        handleDeleteClick={handleDeleteClick} />
-                        )
-                    }  
-                    </Fragment>
-                ))}
-            </table>
-        </form>
-        <h3>Add an Event</h3>
-            <form className="box-1" onSubmit={handleAddFormSubmit}>
-                <input
-                name='title' 
-                type='text'
-                required='required'
-                placeholder='Enter title...'
-                onChange={handleAddFormChange}
-                />
-                <input
-                name='description' 
-                type='text'
-                required='required'
-                placeholder='Enter description...'
-                onChange={handleAddFormChange}
-                />
-                <input
-                name='month' 
-                type='text'
-                required='required'
-                placeholder='Enter month...'
-                onChange={handleAddFormChange}
-                />
-                <input
-                name='day' 
-                type='text'
-                required='required'
-                placeholder='Enter day...'
-                onChange={handleAddFormChange}
-                />
-                <input
-                name='year' 
-                type='text'
-                required='required'
-                placeholder='Enter year...'
-                onChange={handleAddFormChange}
-                />
-                <input
-                name='time' 
-                type='time'
-                required='required'
-                placeholder='Enter time...'
-                onChange={handleAddFormChange}
-                />
-                <input
-                name='street' 
-                type='text'
-                required='required'
-                placeholder='Enter address...'
-                onChange={handleAddFormChange} />
-
-                <input  
-                name='city'
-                type='text'
-                required='required'
-                placeholder='Enter city...'
-                onChange={handleAddFormChange} />
-
-                <input
-                name='state'
-                type='text' 
-                required='required'
-                placeholder='Enter state'
-                onChange={handleAddFormChange} />
-            
-                <input
-                name='zip_code' 
-                type='text' 
-                required='required'
-                placeholder='Enter zip code...'
-                onChange={handleAddFormChange} />
-                
-                <button className="add-btn" type="submit">Add</button>
-
-            </form>
+                    {props.events.map((event) => (
+                        <Fragment>
+                            {editEventId === event.id ?
+                        ( <MEventsEditRow
+                            editFormData={editFormData}
+                            handleEditFormChange={handleEditFormChange}
+                            handleCancelClick={handleCancelClick} /> ) :
+                        ( <MEventsRoR
+                            event={event}
+                            handleEditClick={handleEditClick} />
+                            )
+                        }  
+                        </Fragment>
+                    ))}
+                </table>
+                </form>
 
 
-       </div> 
+        </div> 
     );
 
 

@@ -34,12 +34,7 @@ function App() {
 
   useEffect(() => {
     getAllMembers();
-    allEvents();
-
-    // createRequest(); 
-    // createRsvp();
-    // viewEventMap(); 
-      
+    allEvents(); 
   }, [])
 
 
@@ -99,22 +94,6 @@ function App() {
   }; 
 
 
-
-// async function getMap() {
-//   let response = await axios.get(`https://maps.googleapis.com/maps/api/
-//     js?key=AIzaSyA2Sx-Xy3xjvPlwQenS_IAW0eA6Iv3Zsu0&callback=initMap`)
-//   setMapData(response.data.items)
-// }
-
-//  async function createRequest(NewRequest) {
-//    let response = await axios.post('http://127.0.0.1:8000/api/members/create_membership_request/', NewRequest);
-//    if(response.status === 201) {
-//      console.log("New Request Generated")
-//     //  await viewAllEvents();
-//    }
-//  };
-
-
 //   async function updateProfile(id) {
 //     console.log("ViewSingleProfile - param: ", id)
 //     let response = await axios.get(`http://127.0.0.1:8000/api/members/view_profile/${id}/`);
@@ -136,6 +115,13 @@ function App() {
 //     }
 // };
 
+//  async function createRequest(NewRequest) {
+//    let response = await axios.post('http://127.0.0.1:8000/api/members/create_membership_request/', NewRequest);
+//    if(response.status === 201) {
+//      console.log("New Request Generated")
+//     //  await viewAllEvents();
+//    }
+//  };
 
 //   async function viewSingleEvent(id) {
 //     let response = await axios.get('http://127.0.0.1:8000/api/events/view_event/${id}/');
@@ -154,30 +140,19 @@ function App() {
 //   };
 
 
-//   async function viewEventMap(getMap) {
-//     let response = await axios.get('insert Google maps Api here'), getMap;
-//     if(response.status === 201) {
-//       await viewAllEvents();
-//     }
-//   }
-
-
   return (
     <div className="homeContainer">
     <NavBar/>
         <div >
           <Routes>
               <Route path='/' element={<Login userName={userName} /> } />
+              {/* <Route path='/admin_login/' element={<Login userName={userName} /> } /> */}
               <Route path='/register/' element={<Register />} />
               <Route path='/view_events/' element={<AllEvents events={events} createAnEvent={createAnEvent} deleteEvent={deleteEvent} updateEvent={updateEvent}/> } />
               <Route path='/view_members/' element={<AllMembers members={members} createMember={createMember} updateMember={updateMember} /> } />
-              <Route path='/members/' element={<MemberProfile members={members} />} /> 
-        </Routes>
-{/* 
-        <React.Fragment>
-          <MapComponent></MapComponent>
-        </React.Fragment> */}
-
+              <Route path='/members/' element={<MemberProfile members={members} updateProfile={updateProfile} />} /> 
+              <Route path='/member_events/' element={<MEvents events={events}  />} /> 
+          </Routes> 
       </div>
     </div>
   );
@@ -185,26 +160,14 @@ function App() {
 
 export default App;
 
-// updateProfile={updateProfile}
 
-              {/* <Route path='view_all_events' element={allEvents} />  */}
-              {/* <Route path='/get_all_members' element={getAllMembers} /> 
+// 
 
-{/* <MapComponent></MapComponent> */}
+{/* <MapComponent></MapComponent> */} 
 
-
-{/* <Route path='Allevents' element={AllEvents} createAnEvent= {createAnEvent} updateEvent={updateEvent} deleteEvent={deleteEvent}/> */}
-{/* <Route path='contact' element={Contact} /> */}
-<>
-              {/* <AllEvents path='AllEvents' element={AllEvents} />
-              <AllMembers path='AllMembers' element={AllMembers} /> */}
-
-</>
-
-  {/* <>
-  <AllEvents  events={events} createAnEvent= {createAnEvent} updateEvent={updateEvent} deleteEvent={deleteEvent}/>
-  <AllMembers members={members} createMember={createMember} updateMember={updateMember} />  */}
-  // </>
-  // }; 
+{/* 
+        <React.Fragment>
+          <MapComponent></MapComponent>
+        </React.Fragment> */}
 
   {/* <CreateMemberRequest parentEntries={members} createRequest={createRequest}/>  */}
