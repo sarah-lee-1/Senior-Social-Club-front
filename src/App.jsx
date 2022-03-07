@@ -114,14 +114,26 @@ function App() {
 //  };
 
 
-  // async function viewSingleProfile(id) {
-  //     console.log("ViewSingleProfile - param: ", id)
-  //   let response = await axios.get('http://127.0.0.1:8000/api/members/view_profile/${id}/', id); 
-  //   if(response.status === 201) {
-  //     console.log("Profile Retrieved")
-  //     // await viewAllEvents();  
-  //   }
-  // };
+//   async function updateProfile(id) {
+//     console.log("ViewSingleProfile - param: ", id)
+//     let response = await axios.get(`http://127.0.0.1:8000/api/members/view_profile/${id}/`);
+//     if (response.status === 200) {
+//         console.log("Profile Retrieved")
+//         let foundProfile = response.data;
+//         console.log('foundProfile', foundProfile)
+//         setFirstName(foundProfile.first_name);
+//         setMiddleName(foundProfile.middle_name);
+//         setLastName(foundProfile.last_name);
+//         setEmail(foundProfile.email);
+//         setAddress(foundProfile.address);
+//         setCity(foundProfile.city);
+//         setState(foundProfile.state);
+//         setZipCode(foundProfile.zip_code);
+//         setIsActive(foundProfile.IsActive);
+//         setBalance(foundProfile.balance); 
+
+//     }
+// };
 
 
 //   async function viewSingleEvent(id) {
@@ -156,10 +168,9 @@ function App() {
           <Routes>
               <Route path='/' element={<Login userName={userName} /> } />
               <Route path='/register/' element={<Register />} />
-              
               <Route path='/view_events/' element={<AllEvents events={events} createAnEvent={createAnEvent} deleteEvent={deleteEvent} updateEvent={updateEvent}/> } />
               <Route path='/view_members/' element={<AllMembers members={members} createMember={createMember} updateMember={updateMember} /> } />
-              <Route path='/members/' element={<MemberProfile members={members} updateMember={updateMember} />} /> 
+              <Route path='/members/' element={<MemberProfile members={members} />} /> 
         </Routes>
 {/* 
         <React.Fragment>

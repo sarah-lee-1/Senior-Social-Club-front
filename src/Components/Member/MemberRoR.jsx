@@ -20,13 +20,6 @@ const MemberRoR = ({ member, handleEditClick, handleDeleteClick }) => {
                     onClick={(event) => handleEditClick(event, member)}
                 >Edit</button>
             </td>
-            <td>
-                <button
-                    className="del-btn"
-                    type="button"
-                    onClick={() => handleDeleteClick(member.id)}
-                >Delete</button>
-            </td>
         </tr>
     );
 
