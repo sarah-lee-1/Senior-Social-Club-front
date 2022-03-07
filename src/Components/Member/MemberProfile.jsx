@@ -99,25 +99,25 @@ const MemberProfile = (props) => {
         setEditMemberId(null); 
     }; 
 
-    // async function updateProfile(id) {
-    //     console.log("ViewSingleProfile - param: ", id)
-    //     let response = await axios.put(`http://127.0.0.1:8000/api/members/update_profile/${id}/`);
-    //     if (response.status === 200) {
-    //         console.log("Profile Retrieved")
-    //         let foundProfile = response.data;
-    //         console.log('foundProfile', foundProfile)
-    //         setFirstName(foundProfile.first_name);
-    //         setMiddleName(foundProfile.middle_name);
-    //         setLastName(foundProfile.last_name);
-    //         setEmail(foundProfile.email);
-    //         setAddress(foundProfile.address);
-    //         setCity(foundProfile.city);
-    //         setState(foundProfile.state);
-    //         setZipCode(foundProfile.zip_code);
-    //         setIsActive(foundProfile.IsActive);
-    //         setBalance(foundProfile.balance); 
-    //     }
-    // };
+    async function updateProfile(id) {
+        console.log("ViewSingleProfile - param: ", id)
+        let response = await axios.put(`http://127.0.0.1:8000/api/members/update_profile/${id}/`);
+        if (response.status === 200) {
+            console.log("Profile Retrieved")
+            let foundProfile = response.data;
+            console.log('foundProfile', foundProfile)
+            setFirstName(foundProfile.first_name);
+            setMiddleName(foundProfile.middle_name);
+            setLastName(foundProfile.last_name);
+            setEmail(foundProfile.email);
+            setAddress(foundProfile.address);
+            setCity(foundProfile.city);
+            setState(foundProfile.state);
+            setZipCode(foundProfile.zip_code);
+            setIsActive(foundProfile.IsActive);
+            setBalance(foundProfile.balance); 
+        }
+    };
 
     return (
         <div className="container-1">

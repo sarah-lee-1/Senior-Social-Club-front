@@ -183,8 +183,9 @@ function App() {
 };
 
 export default App;
-// userName={userName}
-              // regUser={regUser} 
+
+// updateProfile={updateProfile}
+
               {/* <Route path='view_all_events' element={allEvents} />  */}
               {/* <Route path='/get_all_members' element={getAllMembers} /> 
 
