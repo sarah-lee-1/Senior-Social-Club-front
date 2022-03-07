@@ -48,6 +48,7 @@
     margin-top: 25px;
 }
 
+
 .logout-btn {
     float: right;
     border-radius: 5px;
@@ -148,6 +149,7 @@ a:hover {
 .map-container {
     position: relative;
     float: right; 
+    margin: 20px;
 
 }
 

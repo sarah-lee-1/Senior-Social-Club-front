@@ -9,8 +9,7 @@ function MapComponent(props){
             height:'600px',
             width:'850px',  
             // position: 'right',
-                   
-            
+
         }}
             google={props.google}
             zoom={10}

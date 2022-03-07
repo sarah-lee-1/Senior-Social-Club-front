@@ -1,8 +1,9 @@
 import axios from 'axios';
-import React, { useState, Fragment } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import jwt_decode from 'jwt-decode';
 import MemberEditRow from './MemberEditRow';
 import MemberRoR from './MemberRoR';
+// const decodedUser = jwt_decode(jwt); 
 
 
 const MemberProfile = (props) => {
@@ -48,7 +49,6 @@ const MemberProfile = (props) => {
 
     const handleEditFormSubmit = (event) => {
         event.preventDefault();
-        console.log("handleEditFormSubmit: here it is   " + editMemberId)
         const editedMember = {
             id: editMemberId,
             first_name: editFormData.first_name,
@@ -99,29 +99,10 @@ const MemberProfile = (props) => {
         setEditMemberId(null); 
     }; 
 
-    async function updateProfile(id) {
-        console.log("ViewSingleProfile - param: ", id)
-        let response = await axios.put(`http://127.0.0.1:8000/api/members/update_member/${id}/`);
-        if (response.status === 200) {
-            console.log("Profile Retrieved")
-            let foundProfile = response.data;
-            console.log('foundProfile', foundProfile)
-            setFirstName(foundProfile.first_name);
-            setMiddleName(foundProfile.middle_name);
-            setLastName(foundProfile.last_name);
-            setEmail(foundProfile.email);
-            setAddress(foundProfile.address);
-            setCity(foundProfile.city);
-            setState(foundProfile.state);
-            setZipCode(foundProfile.zip_code);
-            setIsActive(foundProfile.IsActive);
-            setBalance(foundProfile.balance); 
-        }
-    };
-
     return (
         <div className="container-1">
-            <h3>Member Directory</h3>  
+            <h3>Member Profile</h3>  
+            {/* {props.member.first_name} */}
             <form onSubmit={handleEditFormSubmit}>
                 <table>
                     {/* <thead>
@@ -136,20 +117,18 @@ const MemberProfile = (props) => {
                         <tr>Active Status</tr>
                         <tr>Balance</tr>
                     </thead> */}
-                
-                        {props.members.map((member) => (
-                            <Fragment>
-                                {editMemberId === member.id ?
-                            ( <MemberEditRow 
-                                editFormData={editFormData}
-                                handleEditFormChange={handleEditFormChange}
-                                handleCancelClick={handleCancelClick}/> ) :
-                            ( <MemberRoR
-                                member={member}
-                                handleEditClick={handleEditClick} />)
-                            } 
-                            </Fragment>
-                        ))}
+  
+                        <Fragment>
+                            <MemberRoR
+                            member={props.member}
+                            handleEditClick={handleEditClick} />  
+                            
+                            <MemberEditRow 
+                            editFormData={editFormData}
+                            handleEditFormChange={handleEditFormChange}
+                            handleCancelClick={handleCancelClick}/> 
+                        </Fragment>
+                    
                 </table>
             </form>
 

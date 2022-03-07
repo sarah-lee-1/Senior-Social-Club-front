@@ -1,6 +1,7 @@
 import { useState, Fragment } from "react";
 import MEventsRoR from './MEventsRoR';
 import MEventsEditRow from './MEventsEditRow';
+import MapComponent from "../Map/MapComponent";
 
 const MEvents = (props) => {
     const [id, setid] = useState('');
@@ -141,11 +142,28 @@ const MEvents = (props) => {
     const handleCancelClick = () => { 
         setEditEventId(null);
     };
+    
+    
 
+    // const handleRsvpButton = (event) => {
+    //     event.preventDefault(); 
+    //     const [status, useStatus] = useState(false);
+    
+    //     function rsvp() {
+    //         setStatus(!status);
+    //     }
+        
+    //     return ( 
+    //         <button onClick={rsvp} className={'toggle--button '+ 
+    //         (status ? 'toggle--Like': 'toggle--Unlike')}>
+    //             {status ? 'YES' :'RSVP'}
+    //         </button>
+    //     );
+    // }
 
     return (
         <div className="container-1">
-           <h3>Event Directory</h3>
+           <h3>Upcoming Events</h3>
             <form onSubmit={handleEditFormSubmit}>
                 <table>
                     {/* <thead>
@@ -170,14 +188,18 @@ const MEvents = (props) => {
                             handleCancelClick={handleCancelClick} /> ) :
                         ( <MEventsRoR
                             event={event}
-                            handleEditClick={handleEditClick} />
+                            // handleRsvpButton={handleRsvpButton}
+                            // handleEditClick={handleEditClick} 
+                            />
                             )
                         }  
                         </Fragment>
                     ))}
+                <button className="add-btn" type="submit">Add</button>
                 </table>
+                
                 </form>
-
+                        <MapComponent></MapComponent>
 
         </div> 
     );

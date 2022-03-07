@@ -23,26 +23,25 @@ const NavBar = (props) => {
       
       <Fragment>
       <div>
-      <ul>
-        <li>
-          <Link to='/'>Login</Link>
-        </li>
-        <li>
-          <Link to='/admin_login/'>Admin Login</Link>
-        </li>
-        <li>
-        <Link to='/view_events/'>Admin Events</Link>
-        </li>
-        <li>
-        <Link to='/view_members/'>Admin Members</Link>
-        </li>
-        <li>
-        <Link to='/members/'>Members</Link>
-        </li>
-        <li>
-        <Link to='/member_events/'>Member Events</Link>
-        </li>
-
+        <ul>
+          <li>
+            <Link to='/'>Login</Link>
+          </li>
+          {/* <li>
+            <Link to='/admin_login/'>Admin Login</Link>
+          </li> */}
+          <li>
+          <Link to='/view_events/'>Admin Events</Link>
+          </li>
+          <li>
+          <Link to='/view_members/'>Admin Members</Link>
+          </li>
+          <li>
+          <Link to='/member_events/'>Member Events</Link>
+          </li>
+          <li>
+          <Link to='/members/'>Members</Link>
+          </li>
 
         </ul>
       </div>
@@ -53,7 +52,6 @@ const NavBar = (props) => {
   </nav>
   );
   
-
 }
 
 export default NavBar; 

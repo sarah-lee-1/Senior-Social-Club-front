@@ -8,7 +8,6 @@ import MEvents from './Components/Member/MEvents';
 import NavBar from './Components/Navbar/Navbar';
 import Login from './Components/Home/Login';
 import Register from './Components/Home/Register';
-import { Fragment } from 'react/cjs/react.production.min';
 import {
   BrowserRouter as Router,
   Routes,
@@ -32,9 +31,22 @@ function App() {
   const [members, setMembers] = useState([]); 
   const [userName, setUserName] = useState('');
 
+  const [firstName, setFirstName] = useState('');
+  const [middleName, setMiddleName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [address, setAddress] = useState('');
+  const [city, setCity] = useState('');
+  const [state, setState] = useState('');
+  const [zipCode, setZipCode] = useState('');
+  const [isActive, setIsActive] = useState(''); 
+  const [balance, setBalance] = useState('');
+
+
   useEffect(() => {
     getAllMembers();
     allEvents(); 
+    viewMember();
   }, [])
 
 
@@ -93,6 +105,76 @@ function App() {
     }
   }; 
 
+  async function updateProfile(editedMember) {
+    console.log(editedMember)
+  let response = await axios.put(`http://127.0.0.1:8000/api/members/update_member/${editedMember.id}/`, editedMember);
+  if(response.data === 201) {
+    // await viewAllEvents(); 
+  }
+};
+
+  async function viewMember(id) {
+    let response = await axios.get(`http://127.0.0.1:8000/api/members/view_profile/${3}/`);
+    console.log(response.status)
+    setMember(response.data)
+    if(response.status === 200) {
+     
+     
+    }
+  }; 
+
+
+
+
+  return (
+    <div className="homeContainer">
+    <NavBar/>
+        <div >
+          <Routes>
+              <Route path='/' element={<Login userName={userName} /> } />
+              <Route path='/admin_login/' element={<Login userName={userName} /> } />
+              <Route path='/register/' element={<Register />} />
+              <Route path='/view_events/' element={<AllEvents events={events} createAnEvent={createAnEvent} deleteEvent={deleteEvent} updateEvent={updateEvent}/> } />
+              <Route path='/view_members/' element={<AllMembers members={members} createMember={createMember} updateMember={updateMember} /> } />
+     
+              <Route path='/member_events/' element={<MEvents events={events}/>} /> 
+            
+              <Route path='/members/' element={<MemberProfile member={member} updateProfile={updateProfile} />} /> 
+                    
+          </Routes> 
+      </div>
+
+    </div>
+  );
+};
+
+export default App;
+
+{/* <React.Fragment>
+<MapComponent></MapComponent>
+</React.Fragment> */}
+
+{/* <MapComponent></MapComponent> */} 
+
+//   async function updateProfile(id) {
+//     console.log("ViewSingleProfile - param: ", id)
+//     let response = await axios.put(`http://127.0.0.1:8000/api/members/update_member/${id}/`);
+//     if (response.status === 200) {
+//         console.log("Profile Retrieved")
+//         let foundProfile = response.data;
+//         console.log('foundProfile', foundProfile)
+//         setFirstName(foundProfile.first_name);
+//         setMiddleName(foundProfile.middle_name);
+//         setLastName(foundProfile.last_name);
+//         setEmail(foundProfile.email);
+//         setAddress(foundProfile.address);
+//         setCity(foundProfile.city);
+//         setState(foundProfile.state);
+//         setZipCode(foundProfile.zip_code);
+//         setIsActive(foundProfile.IsActive);
+//         setBalance(foundProfile.balance); 
+//     }
+// }; 
 
 //   async function updateProfile(id) {
 //     console.log("ViewSingleProfile - param: ", id)
@@ -138,36 +220,3 @@ function App() {
 //       await viewAllEvents();
 //     }
 //   };
-
-
-  return (
-    <div className="homeContainer">
-    <NavBar/>
-        <div >
-          <Routes>
-              <Route path='/' element={<Login userName={userName} /> } />
-              {/* <Route path='/admin_login/' element={<Login userName={userName} /> } /> */}
-              <Route path='/register/' element={<Register />} />
-              <Route path='/view_events/' element={<AllEvents events={events} createAnEvent={createAnEvent} deleteEvent={deleteEvent} updateEvent={updateEvent}/> } />
-              <Route path='/view_members/' element={<AllMembers members={members} createMember={createMember} updateMember={updateMember} /> } />
-              <Route path='/members/' element={<MemberProfile members={members} updateProfile={updateProfile} />} /> 
-              <Route path='/member_events/' element={<MEvents events={events}  />} /> 
-          </Routes> 
-      </div>
-    </div>
-  );
-};
-
-export default App;
-
-
-// 
-
-{/* <MapComponent></MapComponent> */} 
-
-{/* 
-        <React.Fragment>
-          <MapComponent></MapComponent>
-        </React.Fragment> */}
-
-  {/* <CreateMemberRequest parentEntries={members} createRequest={createRequest}/>  */}

@@ -23,7 +23,7 @@ const Login = (props) => {
         let response = await axios.post('http://127.0.0.1:8000/api/auth/login/', loginUser);
         localStorage.setItem('token', response.data.access);
 
-        navigate('/members/');
+        navigate('/member_events/');
         if(response.status === 201) {
 
         };
@@ -38,12 +38,12 @@ const Login = (props) => {
         login(loginUser);
     };
 
-    async function handleClick(event) {
+    async function handleRegClick(event) {
         event.preventDefault();
         navigate('/register/');
     }
 
-    async function handleClick(event) {
+    async function handleAdminClick(event) {
         event.preventDefault();
         navigate('/admin_login/');
     }
@@ -64,12 +64,12 @@ const Login = (props) => {
                        
                         <button 
                         className='reg-btn' 
-                        onClick={handleClick}
+                        onClick={handleRegClick}
                         >Register</button>
                         
                         <button 
                         className='admin-btn' 
-                        onClick={handleClick}
+                        onClick={handleAdminClick}
                         >Admin Login</button>
 
                 </form>
