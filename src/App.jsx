@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import AllMembers from './Components/Admin/AllMembers'; 
 import AllEvents from './Components/Admin/AllEvents';
 import MemberProfile from './Components/Member/MemberProfile';
+import MEvents from './Components/Member/MEvents';
 import NavBar from './Components/Navbar/Navbar';
 import Login from './Components/Home/Login';
 import Register from './Components/Home/Register';
