@@ -2,13 +2,8 @@ import { Navigate } from 'react-router-dom'
 import axios from 'axios'; 
 import React, { useState, useEffect } from 'react';
 import AllMembers from './Components/Admin/AllMembers'; 
-import CreateNewMember from './Components/Xtra/CreateNewMember';
-import CreateMemberRequest from './Components/Member/CreateMemberReq';
-import ViewSingleProfile from './Components/Xtra/ViewSingleProfile';
-import CreateNewEvent from './Components/Xtra/CreateNewEvent';
 import AllEvents from './Components/Admin/AllEvents';
-import EditAM from './Components/Xtra/EditAM'; 
-// import Home from '.Components/Home/Home';
+import MemberProfile from './Components/Member/MemberProfile';
 import NavBar from './Components/Navbar/Navbar';
 import Login from './Components/Home/Login';
 import Register from './Components/Home/Register';
@@ -21,8 +16,13 @@ import {
 } from 'react-router-dom'
 import MapComponent from './Components/Map/MapComponent';
 
+// import CreateMemberRequest from './Components/Member/CreateMemberReq';
+// import ViewSingleProfile from './Components/Xtra/ViewSingleProfile';
+// import CreateNewMember from './Components/Xtra/CreateNewMember';
+// import CreateNewEvent from './Components/Xtra/CreateNewEvent';
 // import ReviseProfile from './Components/Member/ReviseProfile';
-
+// import EditAM from './Components/Xtra/EditAM'; 
+// import Home from '.Components/Home/Home';
 
 function App() {
   const [event, setEvent] = useState([]);
